@@ -1,0 +1,47 @@
+{
+  "fonts": {
+    "families": {
+      "sansSerif": "Inter",
+      "monospace": "JetBrainsMono Nerd Font"
+    },
+    "sizes": {
+      "xs": 12,
+      "sm": 14,
+      "base": 16,
+      "md": 20,
+      "lg": 24,
+      "xl": 28,
+      "xl2": 32
+    },
+    "weights": {
+      "thin": 100,
+      "extraLight": 200,
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semiBold": 600,
+      "bold": 700,
+      "extraBold": 800,
+      "black": 900
+    },
+    "leadings": {},
+    "trackings": {
+      "none": 0,
+      "xs": 2,
+      "sm": 4,
+      "md": 6,
+      "lg": 8
+    }
+  },
+  "spacings": {
+    "none": 0,
+    "xs": 2,
+    "sm": 4,
+    "md": 6,
+    "lg": 8,
+    "xl": 12,
+    "xl2": 16,
+    "xl3": 20,
+    "xl4": 24
+  }
+}
