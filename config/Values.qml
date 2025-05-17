@@ -1,0 +1,100 @@
+pragma Singleton
+
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+Singleton {
+  id: root
+
+  component FontFamily: QtObject {
+    readonly property string sans: "Inter"
+    readonly property string mono: "JetBrainsMono Nerd Font"
+    readonly property string icon: ""
+  }
+
+  component FontSize: QtObject {
+    readonly property int extraSmall: 12
+    readonly property int small: 14
+    readonly property int base: 16
+    readonly property int medium: 20
+    readonly property int large: 24
+    readonly property int extraLarge: 28
+    readonly property int huge: 32
+  }
+
+  component FontWeight: QtObject {
+    readonly property int thin: 100
+    readonly property int extraLight: 200
+    readonly property int light: 300
+    readonly property int regular: 400
+    readonly property int medium: 500
+    readonly property int semiBold: 600
+    readonly property int bold: 700
+    readonly property int extraBold: 800
+    readonly property int black: 900
+  }
+
+  component FontLeading: QtObject {
+    readonly property int none: 0
+  }
+
+  component FontTracking: QtObject {
+    readonly property int none: 0
+    readonly property int extraSmall: 2
+    readonly property int small: 4
+    readonly property int medium: 6
+    readonly property int large: 8
+  }
+
+  component SpacingGap: QtObject {
+    readonly property int none: 0
+    readonly property int smallest: 2
+    readonly property int smaller: 4
+    readonly property int small: 6
+    readonly property int medium: 8
+    readonly property int large: 12
+    readonly property int larger: 16
+    readonly property int largest: 20
+    readonly property int huge: 24
+  }
+
+  component SpacingPadding: QtObject {
+    readonly property int none: 0
+    readonly property int smallest: 4
+    readonly property int smaller: 6
+    readonly property int small: 8
+    readonly property int large: 12
+    readonly property int larger: 16
+    readonly property int largest: 24
+  }
+
+  component SpacingMargin: QtObject {
+    readonly property int none: 0
+  }
+
+  component Font: QtObject {
+    readonly property FontFamily family: FontFamily {}
+    readonly property FontSize size: FontSize {}
+    readonly property FontWeight weight: FontWeight {}
+    readonly property FontLeading leading: FontLeading {}
+    readonly property FontTracking tracking: FontTracking {}
+  }
+
+  component Rounding: QtObject {
+    readonly property int none: 0
+    readonly property int small: 3
+    readonly property int medium: 6
+    readonly property int large: 12
+  }
+
+  component Spacing: QtObject {
+    readonly property SpacingGap gap: SpacingGap {}
+    readonly property SpacingPadding padding: SpacingPadding {}
+    readonly property SpacingMargin margin: SpacingMargin {}
+  }
+
+  readonly property Font font: Font {}
+  readonly property Rounding rounding: Rounding {}
+  readonly property Spacing spacing: Spacing {}
+}
