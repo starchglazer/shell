@@ -14,25 +14,25 @@ Singleton {
   }
 
   component FontSize: QtObject {
-    readonly property int extraSmall: 12
-    readonly property int small: 14
-    readonly property int base: 16
+    readonly property int smallest: 12
+    readonly property int smaller: 14
+    readonly property int small: 16
     readonly property int medium: 20
     readonly property int large: 24
-    readonly property int extraLarge: 28
-    readonly property int huge: 32
+    readonly property int larger: 28
+    readonly property int largest: 32
   }
 
   component FontWeight: QtObject {
-    readonly property int thin: 100
-    readonly property int extraLight: 200
-    readonly property int light: 300
+    readonly property int smallest: 100
+    readonly property int smaller: 200
+    readonly property int small: 300
     readonly property int regular: 400
     readonly property int medium: 500
-    readonly property int semiBold: 600
-    readonly property int bold: 700
-    readonly property int extraBold: 800
-    readonly property int black: 900
+    readonly property int large: 600
+    readonly property int larger: 700
+    readonly property int largest: 800
+    readonly property int huge: 900
   }
 
   component FontLeading: QtObject {
@@ -41,8 +41,8 @@ Singleton {
 
   component FontTracking: QtObject {
     readonly property int none: 0
-    readonly property int extraSmall: 2
-    readonly property int small: 4
+    readonly property int small: 2
+    readonly property int regular: 4
     readonly property int medium: 6
     readonly property int large: 8
   }
@@ -52,11 +52,11 @@ Singleton {
     readonly property int smallest: 2
     readonly property int smaller: 4
     readonly property int small: 6
-    readonly property int medium: 8
-    readonly property int large: 12
-    readonly property int larger: 16
-    readonly property int largest: 20
-    readonly property int huge: 24
+    readonly property int regular: 8
+    readonly property int medium: 12
+    readonly property int large: 16
+    readonly property int larger: 20
+    readonly property int largest: 24
   }
 
   component SpacingPadding: QtObject {
