@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import "root:/config"
 
 Variants {
   model: Quickshell.screens
@@ -27,7 +28,7 @@ Variants {
       retainWhileLoading: true
       anchors.fill: parent
       fillMode: Image.PreserveAspectCrop
-      source: "file:///home/inspiron/Pictures/walls/8.jpg"
+      source: `${Paths.pictures}/walls/8.jpg`
     }
   }
 }
