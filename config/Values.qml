@@ -5,8 +5,6 @@ import Quickshell.Io
 import QtQuick
 
 Singleton {
-  id: root
-
   component FontFamily: QtObject {
     readonly property string sans: "Inter"
     readonly property string mono: "JetBrainsMono Nerd Font"
