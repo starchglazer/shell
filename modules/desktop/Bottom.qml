@@ -1,5 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
+import "root:/config"
 import "widgets"
 
 Variants {
@@ -16,11 +17,18 @@ Variants {
     layer: WlrLayer.Bottom
     exclusionMode: ExclusionMode.Ignore
     keyboardFocus: WlrKeyboardFocus.None
+
     anchors {
       top: false
       right: true
       bottom: true
       left: true
+    }
+    margins {
+      top: Values.spacing.margin.none
+      right: Values.spacing.margin.large
+      bottom: Values.spacing.margin.large
+      left: Values.spacing.margin.large
     }
   }
 }
