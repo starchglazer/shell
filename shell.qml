@@ -1,6 +1,6 @@
 import Quickshell
-import "widgets"
+import "modules"
 
 ShellRoot {
-  Wallpaper {}
+  Desktop {}
 }

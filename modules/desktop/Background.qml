@@ -1,7 +1,6 @@
-import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import "root:/config"
+import "widgets"
 
 Variants {
   model: Quickshell.screens
@@ -22,13 +21,6 @@ Variants {
       left: true
     }
 
-    Image {
-      cache: false
-      asynchronous: true
-      retainWhileLoading: true
-      anchors.fill: parent
-      fillMode: Image.PreserveAspectCrop
-      source: `${Paths.pictures}/walls/8.jpg`
-    }
+    Wallpaper {}
   }
 }
