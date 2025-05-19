@@ -69,6 +69,9 @@ Singleton {
 
   component SpacingMargin: QtObject {
     readonly property int none: 0
+    readonly property int small: 16
+    readonly property int medium: 24
+    readonly property int large: 32
   }
 
   component Font: QtObject {
