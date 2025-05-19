@@ -30,5 +30,7 @@ Variants {
       bottom: Values.spacing.margin.large
       left: Values.spacing.margin.large
     }
+
+    DateTime {}
   }
 }
