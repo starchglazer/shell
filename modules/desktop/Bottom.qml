@@ -8,6 +8,8 @@ Variants {
   WlrLayershell {
     required property ShellScreen modelData
 
+    namespace: "mist-shell-desktop"
+
     screen: modelData
     color: "transparent"
 
