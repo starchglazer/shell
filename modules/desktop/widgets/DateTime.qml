@@ -97,7 +97,7 @@ Variants {
 
             StyledText {
               text: DateTime.format("| dddd")
-              font.pointSize: Values.font.size.small
+              font.pointSize: Values.font.size.smaller
               font.weight: Values.font.weight.smaller
             }
           }
