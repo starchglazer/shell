@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
@@ -95,8 +96,13 @@ Variants {
               font.weight: Values.font.weight.smaller
             }
 
+            ToolSeparator {
+              orientation: Qt.Vertical
+              Layout.fillHeight: true
+            }
+
             StyledText {
-              text: DateTime.format("| dddd")
+              text: DateTime.format("dddd")
               font.pointSize: Values.font.size.smaller
               font.weight: Values.font.weight.smaller
             }
