@@ -42,8 +42,8 @@ Variants {
 
       margin: Values.spacing.padding.largest
 
-      implicitHeight: columns.height + this.padding * 2
-      implicitWidth: columns.width + this.padding * 2
+      implicitHeight: columns.height
+      implicitWidth: columns.width
 
       radius: Values.rounding.large
 
