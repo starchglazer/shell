@@ -3,5 +3,4 @@ import "widgets"
 
 Item {
   DateTime {}
-  Resources {}
 }
