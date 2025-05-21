@@ -48,11 +48,25 @@ Variants {
 
       ColumnLayout {
         id: columns
-        spacing: Values.spacing.gap.small
 
-        Column {}
+        spacing: Values.spacing.gap.large
+        uniformCellSizes: true
 
-        Column {}
+        Column {
+          RowLayout {
+            spacing: Values.spacing.gap.large
+            uniformCellSizes: true
+
+          }
+        }
+
+        Column {
+          RowLayout {
+            spacing: Values.spacing.gap.large
+            uniformCellSizes: true
+
+          }
+        }
       }
     }
   }
