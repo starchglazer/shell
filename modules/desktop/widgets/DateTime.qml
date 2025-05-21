@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Widgets
 import "root:/components"
 import "root:/config"
 import "root:/services"
@@ -34,12 +35,12 @@ Variants {
     implicitHeight: container.implicitHeight
     implicitWidth: container.implicitWidth
 
-    PaddedRectangle {
+    WrapperRectangle {
       id: container
 
       color: "#05000000"
 
-      padding: Values.spacing.padding.largest
+      margin: Values.spacing.padding.largest
 
       implicitHeight: columns.height + this.padding * 2
       implicitWidth: columns.width + this.padding * 2
