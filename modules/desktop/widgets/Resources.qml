@@ -41,59 +41,47 @@ Variants {
 
       margin: Values.spacing.padding.largest
 
-      implicitHeight: columns.implicitHeight
-      implicitWidth: columns.implicitWidth
+      implicitHeight: grid.implicitHeight
+      implicitWidth: grid.implicitWidth
 
       radius: Values.rounding.large
 
-      ColumnLayout {
-        id: columns
+      GridLayout {
+        id: grid
 
-        spacing: Values.spacing.gap.medium
-        uniformCellSizes: true
+        rows: 2
+        columns: 2
 
-        Column {
-          RowLayout {
-            spacing: Values.spacing.gap.medium
-            uniformCellSizes: true
+        uniformCellWidths: true
+        uniformCellHeights: true
 
-            InRowCircularProgress {
-              name: "CPU"
-              percent: Resources.cpuPerc
-              value: `${Math.floor(Resources.cpuPerc * 100)}%`
-              details: ""
-              first: true
-            }
+        rowSpacing: Values.spacing.gap.medium
+        columnSpacing: Values.spacing.gap.medium
 
-            InRowCircularProgress {
-              name: "Memory"
-              percent: Resources.memPerc
-              value: `${Math.floor(Resources.memPerc * 100)}%`
-              details: ""
-            }
-          }
+        ResourceCircularProgress {
+          name: "CPU"
+          percent: Resources.cpuPerc
+          details: ""
         }
 
-        Column {
-          RowLayout {
-            spacing: Values.spacing.gap.medium
-            uniformCellSizes: true
+        ResourceCircularProgress {
+          name: "Memory"
+          percent: Resources.memPerc
+          details: ""
+          leftToRight: false
+        }
 
-            InRowCircularProgress {
-              name: "Storage"
-              percent: Resources.storagePerc
-              value: `${Math.floor(Resources.storagePerc * 100)}%`
-              details: ""
-              first: true
-            }
+        ResourceCircularProgress {
+          name: "Storage"
+          percent: Resources.storagePerc
+          details: ""
+        }
 
-            InRowCircularProgress {
-              name: "Swap"
-              percent: 0
-              value: "0%"
-              details: ""
-            }
-          }
+        ResourceCircularProgress {
+          name: "Swap"
+          percent: 0
+          details: ""
+          leftToRight: false
         }
       }
     }
