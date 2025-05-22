@@ -79,7 +79,7 @@ Variants {
 
         ResourceCircularProgress {
           name: "Swap"
-          percent: 0
+          percent: Resources.swapPerc
           details: ""
           leftToRight: false
         }
