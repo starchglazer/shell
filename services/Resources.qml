@@ -109,8 +109,8 @@ Singleton {
       onRead: data => {
         const values = data.trim().split(" ");
 
-        root.swapTotal = values[2];
-        root.swapUsed = values[3];
+        root.swapTotal = parseInt(values[2], 10);
+        root.swapUsed = parseInt(values[3], 10);
       }
     }
   }
