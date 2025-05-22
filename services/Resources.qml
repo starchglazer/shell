@@ -19,6 +19,10 @@ Singleton {
   property int storageTotal
   property real storagePerc: storageTotal > 0 ? storageUsed / storageTotal : 0
 
+  property int swapUsed
+  property int swapTotal
+  property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
+
   Timer {
     running: true
     interval: 1000
@@ -27,6 +31,7 @@ Singleton {
       stat.reload();
       meminfo.reload();
       storage.running = true;
+      swap.running = true;
     }
   }
 
@@ -87,6 +92,25 @@ Singleton {
 
         root.storageUsed = used;
         root.storageTotal = used + avail;
+      }
+    }
+  }
+
+  Process {
+    id: swap
+
+    running: true
+
+    command: ["sh", "-c", "swapon --show --raw --noheadings --bytes"]
+
+    stdout: SplitParser {
+      splitMarker: ""
+
+      onRead: data => {
+        const values = data.trim().split(" ");
+
+        root.swapTotal = values[2];
+        root.swapUsed = values[3];
       }
     }
   }
