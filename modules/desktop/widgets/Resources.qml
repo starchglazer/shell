@@ -49,22 +49,50 @@ Variants {
       ColumnLayout {
         id: columns
 
-        spacing: Values.spacing.gap.large
+        spacing: Values.spacing.gap.medium
         uniformCellSizes: true
 
         Column {
           RowLayout {
-            spacing: Values.spacing.gap.large
+            spacing: Values.spacing.gap.medium
             uniformCellSizes: true
 
+            InRowCircularProgress {
+              name: "CPU"
+              percent: Resources.cpuPerc
+              value: `${Math.floor(Resources.cpuPerc * 100)}%`
+              details: ""
+              first: true
+            }
+
+            InRowCircularProgress {
+              name: "Memory"
+              percent: Resources.memPerc
+              value: `${Math.floor(Resources.memPerc * 100)}%`
+              details: ""
+            }
           }
         }
 
         Column {
           RowLayout {
-            spacing: Values.spacing.gap.large
+            spacing: Values.spacing.gap.medium
             uniformCellSizes: true
 
+            InRowCircularProgress {
+              name: "Storage"
+              percent: Resources.storagePerc
+              value: `${Math.floor(Resources.storagePerc * 100)}%`
+              details: ""
+              first: true
+            }
+
+            InRowCircularProgress {
+              name: "Swap"
+              percent: 0
+              value: "0%"
+              details: ""
+            }
           }
         }
       }
