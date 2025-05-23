@@ -1,3 +1,7 @@
+// Taken from end_4's XdgDirectories
+// which can be found in https://github.com/end-4/dots-hyprland
+// License: GPL-3.0 - A copy can be found in `licenses` folder in the repository
+
 pragma Singleton
 pragma ComponentBehavior: Bound
 
