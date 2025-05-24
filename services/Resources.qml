@@ -7,6 +7,16 @@ import Quickshell.Io
 Singleton {
   id: root
 
+  component Detail: QtObject {
+    property string text
+    property string unit
+  }
+
+  component Details: QtObject {
+    property Detail used: Detail {}
+    property Detail total: Detail {}
+  }
+
   property QtObject cpu: QtObject {
     property int idle
     property int total
@@ -23,54 +33,21 @@ Singleton {
     property int used
     property int total
     readonly property real percent: total > 0 ? used / total : 0
-
-    property QtObject details: QtObject {
-      property QtObject used: QtObject {
-        property string text
-        property string unit
-      }
-
-      property QtObject total: QtObject {
-        property string text
-        property string unit
-      }
-    }
+    property Details details: Details {}
   }
 
   property QtObject storage: QtObject {
     property int used
     property int total
     readonly property real percent: total > 0 ? used / total : 0
-
-    property QtObject details: QtObject {
-      property QtObject used: QtObject {
-        property string text
-        property string unit
-      }
-
-      property QtObject total: QtObject {
-        property string text
-        property string unit
-      }
-    }
+    property Details details: Details {}
   }
 
   property QtObject swap: QtObject {
     property int used
     property int total
     readonly property real percent: total > 0 ? used / total : 0
-
-    property QtObject details: QtObject {
-      property QtObject used: QtObject {
-        property string text
-        property string unit
-      }
-
-      property QtObject total: QtObject {
-        property string text
-        property string unit
-      }
-    }
+    property Details details: Details {}
   }
 
   function convertFromBytes(bytes): QtObject {
@@ -92,6 +69,16 @@ Singleton {
         unit: "KiB",
       };
     }
+  }
+
+  function setDetails(target, usedBytes, totalBytes, multiplier = 1024) {
+    const used = convertFromBytes(usedBytes * multiplier);
+    const total = convertFromBytes(totalBytes * multiplier);
+
+    target.used.text = used.text;
+    target.used.unit = used.unit;
+    target.total.text = total.text;
+    target.total.unit = total.unit;
   }
 
   Timer {
@@ -164,13 +151,7 @@ Singleton {
       root.memory.total = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
       root.memory.used = (root.memory.total - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
 
-      const usedBytes = convertFromBytes(root.memory.used * 1024),
-        totalBytes = convertFromBytes(root.memory.total * 1024);
-
-      root.memory.details.used.text = usedBytes.text;
-      root.memory.details.used.unit = usedBytes.unit;
-      root.memory.details.total.text = totalBytes.text;
-      root.memory.details.total.unit = totalBytes.unit;
+      setDetails(root.memory.details, root.memory.used, root.memory.total);
     }
   }
 
@@ -197,13 +178,7 @@ Singleton {
         root.storage.used = used;
         root.storage.total = used + free;
 
-        const usedBytes = convertFromBytes(root.storage.used * 1024),
-          totalBytes = convertFromBytes(root.storage.total * 1024);
-
-        root.storage.details.used.text = usedBytes.text;
-        root.storage.details.used.unit = usedBytes.unit;
-        root.storage.details.total.text = totalBytes.text;
-        root.storage.details.total.unit = totalBytes.unit;
+        setDetails(root.storage.details, root.storage.used, root.storage.total);
       }
     }
   }
@@ -224,13 +199,7 @@ Singleton {
         root.swap.total = parseInt(values[2], 10);
         root.swap.used = parseInt(values[3], 10);
 
-        const usedBytes = convertFromBytes(root.swap.used),
-          totalBytes = convertFromBytes(root.swap.total);
-
-        root.swap.details.used.text = usedBytes.text;
-        root.swap.details.used.unit = usedBytes.unit;
-        root.swap.details.total.text = totalBytes.text;
-        root.swap.details.total.unit = totalBytes.unit;
+        setDetails(root.swap.details, root.swap.used, root.swap.total, 1);
       }
     }
   }
