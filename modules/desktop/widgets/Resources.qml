@@ -16,7 +16,6 @@ Variants {
     name: "Resources"
     layer: WlrLayer.Bottom
     screen: modelData
-    color: "transparent"
 
     anchors {
       top: false
