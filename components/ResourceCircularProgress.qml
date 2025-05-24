@@ -13,7 +13,8 @@ RowLayout {
 
   required property string name
   required property real percent
-  required property var details
+  property QtObject complexDetails
+  property string simpleDetails
 
   Layout.fillWidth: true
   Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
@@ -53,14 +54,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.details?.used?.text ?? ""
+          text: root.complexDetails?.used?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smallest
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.details?.used?.unit ?? ""
+          text: root.complexDetails?.used?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.smaller
         }
@@ -73,14 +74,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.details?.total?.text ?? ""
+          text: root.complexDetails?.total?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smallest
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.details?.total?.unit ?? ""
+          text: root.complexDetails?.total?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.smaller
         }
@@ -97,7 +98,7 @@ RowLayout {
         visible: !moreDetails
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
 
-        text: root.details ?? ""
+        text: root.simpleDetails
         font.pointSize: Values.font.size.smaller
         font.weight: Values.font.weight.smallest
         font.family: Values.font.family.mono
