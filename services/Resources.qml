@@ -10,6 +10,9 @@ Singleton {
   property int lastCpuIdle
   property int lastCpuTotal
   property real cpuPerc
+  property real cpuSum
+  property int cpuLen
+  property real cpuTemp: cpuSum > 0 ? cpuSum / cpuLen : 0
 
   property int memUsed
   property int memTotal
@@ -29,6 +32,7 @@ Singleton {
     repeat: true
     onTriggered: {
       stat.reload();
+      temp.running = true;
       meminfo.reload();
       storage.running = true;
       swap.running = true;
@@ -54,6 +58,29 @@ Singleton {
 
         root.lastCpuTotal = total;
         root.lastCpuIdle = idle;
+      }
+    }
+  }
+
+  Process {
+    id: temp
+
+    running: true
+
+    command: ["sh", "-c", "cat /sys/class/thermal/thermal_zone*/temp"]
+
+    stdout: SplitParser {
+      splitMarker: ""
+
+      onRead: data => {
+        const lines = data.trim().split("\n");
+        let sum = 0, {length: len} = lines;
+
+        for (const line of lines)
+          sum += parseInt(line);
+
+        root.cpuSum = sum;
+        root.cpuLen = len;
       }
     }
   }
