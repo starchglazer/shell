@@ -67,20 +67,20 @@ Variants {
         ResourceCircularProgress {
           name: "Memory"
           percent: Resources.memPerc
-          details: ""
+          details: `(${Resources.memDetails})`
           leftToRight: false
         }
 
         ResourceCircularProgress {
           name: "Storage"
           percent: Resources.storagePerc
-          details: ""
+          details: `(${Resources.storageDetails})`
         }
 
         ResourceCircularProgress {
           name: "Swap"
           percent: Resources.swapPerc
-          details: ""
+          details: `(${Resources.swapDetails})`
           leftToRight: false
         }
       }
