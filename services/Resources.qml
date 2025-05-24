@@ -16,14 +16,17 @@ Singleton {
 
   property int memUsed
   property int memTotal
+  property string memDetails
   readonly property real memPerc: memTotal > 0 ? memUsed / memTotal : 0
 
   property int storageUsed
   property int storageTotal
+  property string storageDetails
   readonly property real storagePerc: storageTotal > 0 ? storageUsed / storageTotal : 0
 
   property int swapUsed
   property int swapTotal
+  property string swapDetails
   readonly property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
 
   function formatBytes(bytes): string {
@@ -102,6 +105,7 @@ Singleton {
       const data = text();
       root.memTotal = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
       root.memUsed = (root.memTotal - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
+      root.memDetails = `${formatBytes(root.memUsed * 1024)} / ${formatBytes(root.memTotal * 1024)}`;
     }
   }
 
@@ -127,6 +131,7 @@ Singleton {
 
         root.storageUsed = used;
         root.storageTotal = used + avail;
+        root.storageDetails = `${formatBytes(root.storageUsed * 1024)} / ${formatBytes(root.storageTotal * 1024)}`;
       }
     }
   }
@@ -146,6 +151,7 @@ Singleton {
 
         root.swapTotal = parseInt(values[2], 10);
         root.swapUsed = parseInt(values[3], 10);
+        root.swapDetails = `${formatBytes(root.swapUsed)} / ${formatBytes(root.swapTotal)}`;
       }
     }
   }
