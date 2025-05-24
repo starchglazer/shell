@@ -53,14 +53,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.details.used.text
+          text: root.details?.used?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smallest
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.details.used.unit
+          text: root.details?.used?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.smaller
         }
@@ -73,14 +73,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.details.total.text
+          text: root.details?.total?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smallest
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.details.total.unit
+          text: root.details?.total?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.smaller
         }
@@ -97,7 +97,7 @@ RowLayout {
         visible: !moreDetails
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
 
-        text: root.details
+        text: root?.details ?? ""
         font.pointSize: Values.font.size.smaller
         font.weight: Values.font.weight.smallest
         font.family: Values.font.family.mono
