@@ -4,4 +4,5 @@ import "widgets"
 Item {
   DateTime {}
   Resources {}
+  Versions {}
 }
