@@ -26,6 +26,14 @@ Singleton {
   property int swapTotal
   readonly property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
 
+  function formatBytes(bytes): string {
+    const GiB = 1073741824, MiB = 1048576, KiB = 1024;
+
+    if (bytes >= GiB) return (bytes / GiB).toFixed(1) + "GiB";
+    else if (bytes >= MiB) return (bytes / MiB).toFixed(1) + "MiB";
+    else return (bytes / KiB).toFixed(1) + "KiB";
+  }
+
   Timer {
     running: true
     interval: 1000
