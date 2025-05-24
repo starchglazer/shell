@@ -12,7 +12,7 @@ Singleton {
   property real cpuPerc
   property real cpuSum
   property int cpuLen
-  property real cpuTemp: cpuSum > 0 ? (cpuSum / cpuLen) / 1000 : 0
+  readonly property real cpuTemp: cpuSum > 0 ? (cpuSum / cpuLen) / 1000 : 0
 
   property int memUsed
   property int memTotal
@@ -20,11 +20,11 @@ Singleton {
 
   property int storageUsed
   property int storageTotal
-  property real storagePerc: storageTotal > 0 ? storageUsed / storageTotal : 0
+  readonly property real storagePerc: storageTotal > 0 ? storageUsed / storageTotal : 0
 
   property int swapUsed
   property int swapTotal
-  property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
+  readonly property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
 
   Timer {
     running: true
