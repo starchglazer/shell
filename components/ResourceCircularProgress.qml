@@ -32,6 +32,8 @@ RowLayout {
     }
 
     Row {
+      spacing: Values.spacing.gap.small
+
       Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
       layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
@@ -40,7 +42,8 @@ RowLayout {
 
         text: root.details
         font.pointSize: Values.font.size.smaller
-        font.weight: Values.font.weight.small
+        font.weight: Values.font.weight.smallest
+        font.family: Values.font.family.mono
       }
 
       StyledText {
