@@ -12,7 +12,7 @@ Singleton {
   property real cpuPerc
   property real cpuSum
   property int cpuLen
-  property real cpuTemp: cpuSum > 0 ? cpuSum / cpuLen : 0
+  property real cpuTemp: cpuSum > 0 ? (cpuSum / cpuLen) / 1000 : 0
 
   property int memUsed
   property int memTotal
