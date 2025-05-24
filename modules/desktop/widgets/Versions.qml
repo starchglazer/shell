@@ -37,7 +37,7 @@ Variants {
     WrapperRectangle {
       id: container
 
-      color: "#a5000000"
+      color: "#05000000"
 
       margin: Values.spacing.padding.largest
 
@@ -48,10 +48,39 @@ Variants {
 
       RowLayout {
         id: rows
-        spacing: Values.spacing.gap.medium
+        spacing: Values.spacing.gap.larger
 
-        Row {
+        ColumnLayout {
+          Layout.fillWidth: true
+          spacing: Values.spacing.gap.small
 
+          RowLayout {
+            spacing: Values.spacing.gap.small
+
+            StyledText {
+              text: "NixOS"
+              font.weight: Values.font.weight.medium
+            }
+
+            StyledText {
+              text: "Gen. #247"
+              font.pointSize: Values.font.size.smallest
+              font.weight: Values.font.weight.small
+            }
+          }
+
+          RowLayout {
+            spacing: Values.spacing.gap.small
+
+            StyledText {
+              text: "latest"
+              font.weight: Values.font.weight.small
+            }
+
+            StyledText {
+              text: "(B024CE)"
+            }
+          }
         }
 
         ToolSeparator {
@@ -59,8 +88,34 @@ Variants {
           Layout.fillHeight: true
         }
 
-        Row {
+        ColumnLayout {
+          Layout.fillWidth: true
+          spacing: Values.spacing.gap.small
 
+          Layout.alignment: Qt.AlignRight
+
+          StyledText {
+            Layout.alignment: Qt.AlignRight
+            text: "Hyprland"
+            font.weight: Values.font.weight.medium
+          }
+
+
+          RowLayout {
+            spacing: Values.spacing.gap.small
+            Layout.alignment: Qt.AlignRight
+
+            StyledText {
+              Layout.alignment: Qt.AlignRight
+              text: "latest"
+              font.weight: Values.font.weight.small
+            }
+
+            StyledText {
+              Layout.alignment: Qt.AlignRight
+              text: "(41F5F6)"
+            }
+          }
         }
       }
     }
