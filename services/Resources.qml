@@ -25,8 +25,15 @@ Singleton {
     readonly property real percent: total > 0 ? used / total : 0
 
     property QtObject details: QtObject {
-      property string text
-      // property string unit
+      property QtObject used: QtObject {
+        property string text
+        property string unit
+      }
+
+      property QtObject total: QtObject {
+        property string text
+        property string unit
+      }
     }
   }
 
@@ -36,8 +43,15 @@ Singleton {
     readonly property real percent: total > 0 ? used / total : 0
 
     property QtObject details: QtObject {
-      property string text
-      // property string unit
+      property QtObject used: QtObject {
+        property string text
+        property string unit
+      }
+
+      property QtObject total: QtObject {
+        property string text
+        property string unit
+      }
     }
   }
 
@@ -47,18 +61,37 @@ Singleton {
     readonly property real percent: total > 0 ? used / total : 0
 
     property QtObject details: QtObject {
-      property string text
-      // property string unit
+      property QtObject used: QtObject {
+        property string text
+        property string unit
+      }
+
+      property QtObject total: QtObject {
+        property string text
+        property string unit
+      }
     }
   }
 
-
-  function formatBytes(bytes): string {
+  function convertFromBytes(bytes): QtObject {
     const GiB = 1073741824, MiB = 1048576, KiB = 1024;
 
-    if (bytes >= GiB) return (bytes / GiB).toFixed(0) + "GiB";
-    else if (bytes >= MiB) return (bytes / MiB).toFixed(0) + "MiB";
-    else return (bytes / KiB).toFixed(0) + "KiB";
+    if (bytes >= GiB) {
+      return {
+        text: (bytes / GiB).toFixed(0),
+        unit: "GiB",
+      };
+    } else if (bytes >= MiB) {
+      return {
+        text: (bytes / MiB).toFixed(0),
+        unit: "MiB",
+      };
+    } else {
+      return {
+        text: (bytes / KiB).toFixed(0),
+        unit: "KiB",
+      };
+    }
   }
 
   Timer {
@@ -127,9 +160,17 @@ Singleton {
 
     onLoaded: {
       const data = text();
+
       root.memory.total = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
       root.memory.used = (root.memory.total - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
-      root.memory.details.text = `${formatBytes(root.memory.used * 1024)} / ${formatBytes(root.memory.total * 1024)}`;
+
+      const usedBytes = convertFromBytes(root.memory.used * 1024),
+        totalBytes = convertFromBytes(root.memory.total * 1024);
+
+      root.memory.details.used.text = usedBytes.text;
+      root.memory.details.used.unit = usedBytes.unit;
+      root.memory.details.total.text = totalBytes.text;
+      root.memory.details.total.unit = totalBytes.unit;
     }
   }
 
@@ -155,7 +196,14 @@ Singleton {
 
         root.storage.used = used;
         root.storage.total = used + free;
-        root.storage.details.text = `${formatBytes(root.storage.used * 1024)} / ${formatBytes(root.storage.total * 1024)}`;
+
+        const usedBytes = convertFromBytes(root.storage.used * 1024),
+          totalBytes = convertFromBytes(root.storage.total * 1024);
+
+        root.storage.details.used.text = usedBytes.text;
+        root.storage.details.used.unit = usedBytes.unit;
+        root.storage.details.total.text = totalBytes.text;
+        root.storage.details.total.unit = totalBytes.unit;
       }
     }
   }
@@ -175,7 +223,14 @@ Singleton {
 
         root.swap.total = parseInt(values[2], 10);
         root.swap.used = parseInt(values[3], 10);
-        root.swap.details.text = `${formatBytes(root.swap.used)} / ${formatBytes(root.swap.total)}`;
+
+        const usedBytes = convertFromBytes(root.swap.used * 1024),
+          totalBytes = convertFromBytes(root.swap.total * 1024);
+
+        root.swap.details.used.text = usedBytes.text;
+        root.swap.details.used.unit = usedBytes.unit;
+        root.swap.details.total.text = totalBytes.text;
+        root.swap.details.total.unit = totalBytes.unit;
       }
     }
   }
