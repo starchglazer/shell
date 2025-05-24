@@ -32,9 +32,9 @@ Singleton {
   function formatBytes(bytes): string {
     const GiB = 1073741824, MiB = 1048576, KiB = 1024;
 
-    if (bytes >= GiB) return (bytes / GiB).toFixed(1) + "GiB";
-    else if (bytes >= MiB) return (bytes / MiB).toFixed(1) + "MiB";
-    else return (bytes / KiB).toFixed(1) + "KiB";
+    if (bytes >= GiB) return (bytes / GiB).toFixed(0) + "GiB";
+    else if (bytes >= MiB) return (bytes / MiB).toFixed(0) + "MiB";
+    else return (bytes / KiB).toFixed(0) + "KiB";
   }
 
   Timer {
