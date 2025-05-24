@@ -224,8 +224,8 @@ Singleton {
         root.swap.total = parseInt(values[2], 10);
         root.swap.used = parseInt(values[3], 10);
 
-        const usedBytes = convertFromBytes(root.swap.used * 1024),
-          totalBytes = convertFromBytes(root.swap.total * 1024);
+        const usedBytes = convertFromBytes(root.swap.used),
+          totalBytes = convertFromBytes(root.swap.total);
 
         root.swap.details.used.text = usedBytes.text;
         root.swap.details.used.unit = usedBytes.unit;
