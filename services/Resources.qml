@@ -7,27 +7,51 @@ import Quickshell.Io
 Singleton {
   id: root
 
-  property int lastCpuIdle
-  property int lastCpuTotal
-  property real cpuPerc
-  property real cpuSum
-  property int cpuLen
-  readonly property real cpuTemp: cpuSum > 0 ? (cpuSum / cpuLen) / 1000 : 0
+  property QtObject cpu: QtObject {
+    property int idle
+    property int total
+    property real percent
 
-  property int memUsed
-  property int memTotal
-  property string memDetails
-  readonly property real memPerc: memTotal > 0 ? memUsed / memTotal : 0
+    property string details
 
-  property int storageUsed
-  property int storageTotal
-  property string storageDetails
-  readonly property real storagePerc: storageTotal > 0 ? storageUsed / storageTotal : 0
+    property int cores
+    property int summation
+    readonly property real temperature: summation > 0 ? (summation / cores) / 1000 : 0
+  }
 
-  property int swapUsed
-  property int swapTotal
-  property string swapDetails
-  readonly property real swapPerc: swapTotal > 0 ? swapUsed / swapTotal : 0
+  property QtObject memory: QtObject {
+    property int used
+    property int total
+    readonly property real percent: total > 0 ? used / total : 0
+
+    property QtObject details: QtObject {
+      property string text
+      // property string unit
+    }
+  }
+
+  property QtObject storage: QtObject {
+    property int used
+    property int total
+    readonly property real percent: total > 0 ? used / total : 0
+
+    property QtObject details: QtObject {
+      property string text
+      // property string unit
+    }
+  }
+
+  property QtObject swap: QtObject {
+    property int used
+    property int total
+    readonly property real percent: total > 0 ? used / total : 0
+
+    property QtObject details: QtObject {
+      property string text
+      // property string unit
+    }
+  }
+
 
   function formatBytes(bytes): string {
     const GiB = 1073741824, MiB = 1048576, KiB = 1024;
@@ -42,16 +66,16 @@ Singleton {
     interval: 1000
     repeat: true
     onTriggered: {
-      stat.reload();
-      temp.running = true;
-      meminfo.reload();
+      cpuStat.reload();
+      cpuTemp.running = true;
+      memInfo.reload();
       storage.running = true;
       swap.running = true;
     }
   }
 
   FileView {
-    id: stat
+    id: cpuStat
 
     path: "/proc/stat"
 
@@ -63,18 +87,18 @@ Singleton {
         const total = stats.reduce((a, b) => a + b, 0);
         const idle = stats[3];
 
-        const totalDiff = total - root.lastCpuTotal;
-        const idleDiff = idle - root.lastCpuIdle;
-        root.cpuPerc = totalDiff > 0 ? (1 - idleDiff / totalDiff) : 0;
+        const totalDiff = total - root.cpu.total;
+        const idleDiff = idle - root.cpu.idle;
+        root.cpu.percent = totalDiff > 0 ? (1 - idleDiff / totalDiff) : 0;
 
-        root.lastCpuTotal = total;
-        root.lastCpuIdle = idle;
+        root.cpu.total = total;
+        root.cpu.idle = idle;
       }
     }
   }
 
   Process {
-    id: temp
+    id: cpuTemp
 
     running: true
 
@@ -90,22 +114,22 @@ Singleton {
         for (const line of lines)
           sum += parseInt(line);
 
-        root.cpuSum = sum;
-        root.cpuLen = len;
+        root.cpu.summation = sum;
+        root.cpu.cores = len;
       }
     }
   }
 
   FileView {
-    id: meminfo
+    id: memInfo
 
     path: "/proc/meminfo"
 
     onLoaded: {
       const data = text();
-      root.memTotal = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
-      root.memUsed = (root.memTotal - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
-      root.memDetails = `${formatBytes(root.memUsed * 1024)} / ${formatBytes(root.memTotal * 1024)}`;
+      root.memory.total = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
+      root.memory.used = (root.memory.total - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
+      root.memory.details.text = `${formatBytes(root.memory.used * 1024)} / ${formatBytes(root.memory.total * 1024)}`;
     }
   }
 
@@ -121,17 +145,17 @@ Singleton {
 
       onRead: data => {
         const lines = data.trim().split("\n");
-        let used = 0, avail = 0;
+        let used = 0, free = 0;
 
         for (const line of lines) {
           const [u, a] = line.split(" ");
           used += parseInt(u, 10);
-          avail += parseInt(a, 10);
+          free += parseInt(a, 10);
         }
 
-        root.storageUsed = used;
-        root.storageTotal = used + avail;
-        root.storageDetails = `${formatBytes(root.storageUsed * 1024)} / ${formatBytes(root.storageTotal * 1024)}`;
+        root.storage.used = used;
+        root.storage.total = used + free;
+        root.storage.details.text = `${formatBytes(root.storage.used * 1024)} / ${formatBytes(root.storage.total * 1024)}`;
       }
     }
   }
@@ -149,9 +173,9 @@ Singleton {
       onRead: data => {
         const values = data.trim().split(" ");
 
-        root.swapTotal = parseInt(values[2], 10);
-        root.swapUsed = parseInt(values[3], 10);
-        root.swapDetails = `${formatBytes(root.swapUsed)} / ${formatBytes(root.swapTotal)}`;
+        root.swap.total = parseInt(values[2], 10);
+        root.swap.used = parseInt(values[3], 10);
+        root.swap.details.text = `${formatBytes(root.swap.used)} / ${formatBytes(root.swap.total)}`;
       }
     }
   }
