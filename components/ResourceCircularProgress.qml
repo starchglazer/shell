@@ -97,7 +97,7 @@ RowLayout {
         visible: !moreDetails
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
 
-        text: root?.details ?? ""
+        text: root.details ?? ""
         font.pointSize: Values.font.size.smaller
         font.weight: Values.font.weight.smallest
         font.family: Values.font.family.mono
