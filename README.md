@@ -1,6 +1,6 @@
 # shell
 
-My shell configuration made with Quickshell to be used in Wayland Compositors and/or tiling window managers such as Hyprland, Sway, etc.
+My work-in-progress shell configuration made with [Quickshell](https://quickshell.outfoxxed.me) to be used in Wayland Compositors and/or tiling window managers such as Hyprland, Swayfx/Sway, etc.
 
 ## Overview
 
@@ -16,6 +16,25 @@ Design reference is public and can be viewed and accessed in Figma Community:
 None for now :(
 
 Just check out the design reference, I guess ¯\\_(ツ)_/¯
+
+## Acknowledgements
+
+These individuals have greatly contributed directly/indirectly to what I have now in this repository through feedback, guidance, and, believe it or not, vibes, so shout out to these really cool peeps:
+
+- [Rexi](https://github.com/Rexcrazy804), [(flakes + dotfiles)](https://github.com/Rexcrazy804/Zaphkiel): Helped a lot of times with my nix skill issues
+- [Soramane](https://github.com/soramanew), [(github org)](https://github.com/caelestia-dots/): I yoinked (and will be yoinking) `/services` from this smart guy
+- [end](https://github.com/end_4), [(dotfiles)](https://github.com/end_4/dots-hyprland): Really helpful with my Quickshell skill issues and knowledge gap
+- [outfoxxed]([https://](https://git.outfoxxed.me/outfoxxed)), (Quickshell overlord and creator): Really helpful with my Quickshell skill issues and knowledge gap
+
+and a couple other homies whose links I do not know/can't remember, sorry :sob:
+
+- MilkMan (or PapaMilky)
+- Aureus
+- crispy caesus
+- Squirrel Modeller
+- oyudays
+
+plus all the other cool peeps I've interacted with frequently but forgor and can't remember right now.
 
 ---
 
