@@ -7,12 +7,13 @@ RowLayout {
   id: root
 
   property bool leftToRight: true
+  property bool moreDetails: true
 
   property int size: 32
 
   required property string name
   required property real percent
-  required property string details
+  required property var details
 
   Layout.fillWidth: true
   Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
@@ -37,7 +38,63 @@ RowLayout {
       Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
       layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
+      RowLayout {
+        spacing: Values.spacing.gap.none
+
+        visible: moreDetails
+
+        Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
+
+        StyledText {
+          text: "("
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details.used.text
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details.used.unit
+          font.pointSize: Values.font.size.tiny
+          font.weight: Values.font.weight.smaller
+        }
+
+        StyledText {
+          text: "/"
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details.total.text
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details.total.unit
+          font.pointSize: Values.font.size.tiny
+          font.weight: Values.font.weight.smaller
+        }
+
+        StyledText {
+          text: ")"
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+      }
+
       StyledText {
+        visible: !moreDetails
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
 
         text: root.details
