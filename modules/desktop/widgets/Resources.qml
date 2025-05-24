@@ -62,25 +62,26 @@ Variants {
           name: "CPU"
           percent: Resources.cpu.percent
           details: `(${Math.ceil(Resources.cpu.temperature)}°C)`
+          moreDetails: false
         }
 
         ResourceCircularProgress {
           name: "Memory"
           percent: Resources.memory.percent
-          details: `(${Resources.memory.details.text})`
+          details: Resources.memory.details
           leftToRight: false
         }
 
         ResourceCircularProgress {
           name: "Storage"
           percent: Resources.storage.percent
-          details: `(${Resources.storage.details.text})`
+          details: Resources.storage.details
         }
 
         ResourceCircularProgress {
           name: "Swap"
           percent: Resources.swap.percent
-          details: `(${Resources.swap.details.text})`
+          details: Resources.swap.details
           leftToRight: false
         }
       }
