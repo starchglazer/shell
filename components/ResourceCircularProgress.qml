@@ -14,6 +14,8 @@ RowLayout {
   required property real percent
   required property string details
 
+  Layout.fillWidth: true
+  Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
   layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
   spacing: Values.spacing.gap.large
@@ -31,6 +33,7 @@ RowLayout {
 
     Row {
       Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
+      layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
       StyledText {
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
