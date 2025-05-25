@@ -2,6 +2,7 @@ pragma Singleton
 
 import QtQuick
 import Quickshell
+import Quickshell.Io
 
 Singleton {
   id: root
@@ -22,5 +23,24 @@ Singleton {
   property QtObject wm: QtObject {
     property string name
     property Details details: Details {}
+  }
+
+  Timer {
+    running: true
+    interval: 1000
+    repeat: true
+    onTriggered: {
+      osRelease.reload();
+    }
+  }
+
+  FileView {
+    id: osRelease
+
+    path: "/etc/os-release"
+
+    onLoaded: {
+
+    }
   }
 }
