@@ -56,14 +56,14 @@ RowLayout {
         StyledText {
           text: root.complexDetails?.used?.text ?? ""
           font.pointSize: Values.font.size.smaller
-          font.weight: Values.font.weight.smallest
+          font.weight: Values.font.weight.smaller
           font.family: Values.font.family.mono
         }
 
         StyledText {
           text: root.complexDetails?.used?.unit ?? ""
           font.pointSize: Values.font.size.tiny
-          font.weight: Values.font.weight.smaller
+          font.weight: Values.font.weight.small
         }
 
         StyledText {
@@ -76,14 +76,14 @@ RowLayout {
         StyledText {
           text: root.complexDetails?.total?.text ?? ""
           font.pointSize: Values.font.size.smaller
-          font.weight: Values.font.weight.smallest
+          font.weight: Values.font.weight.smaller
           font.family: Values.font.family.mono
         }
 
         StyledText {
           text: root.complexDetails?.total?.unit ?? ""
           font.pointSize: Values.font.size.tiny
-          font.weight: Values.font.weight.smaller
+          font.weight: Values.font.weight.small
         }
 
         StyledText {
