@@ -64,7 +64,7 @@ Variants {
 
             StyledText {
               visible: Versions.os.details?.generation ? true : false
-              text: `Gen. ${Versions.os.details?.generation ?? ""}`
+              text: `Gen. #${Versions.os.details?.generation ?? ""}`
               font.pointSize: Values.font.size.smallest
               font.weight: Values.font.weight.small
             }
