@@ -55,6 +55,7 @@ Variants {
           spacing: Values.spacing.gap.small
 
           RowLayout {
+            Layout.fillWidth: true
             spacing: Values.spacing.gap.small
 
             StyledText {
@@ -71,6 +72,7 @@ Variants {
           }
 
           RowLayout {
+            Layout.fillWidth: true
             spacing: Values.spacing.gap.small
 
             StyledText {
