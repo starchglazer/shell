@@ -63,13 +63,17 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", ""]
+    command: ["sh", "-c", "nixos-rebuild list-generations"]
 
     stdout: SplitParser {
       splitMarker: ""
 
-      onRead: data =>
-        root.os.details.generation = data.trim();
+      onRead: data =>{
+        const line = data.trim().split("\n").find((str) => str.match(/current/));
+        const current = line.split(" ")[0];
+
+        root.os.details.generation = current;
+      }
     }
   }
 
