@@ -41,13 +41,9 @@ Variants {
 
       margin: Values.spacing.padding.largest
 
-      implicitHeight: columns.height
-      implicitWidth: columns.width
-
       radius: Values.rounding.large
 
       ColumnLayout {
-        id: columns
         spacing: Values.spacing.gap.small
 
         Column {

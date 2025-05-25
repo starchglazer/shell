@@ -40,14 +40,9 @@ Variants {
 
       margin: Values.spacing.padding.largest
 
-      implicitHeight: grid.implicitHeight
-      implicitWidth: grid.implicitWidth
-
       radius: Values.rounding.large
 
       GridLayout {
-        id: grid
-
         rows: 2
         columns: 2
 

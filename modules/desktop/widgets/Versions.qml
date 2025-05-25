@@ -43,11 +43,7 @@ Variants {
 
       radius: Values.rounding.large
 
-      implicitHeight: rows.implicitHeight
-      implicitWidth: rows.implicitWidth
-
       RowLayout {
-        id: rows
         spacing: Values.spacing.gap.larger
 
         ColumnLayout {
