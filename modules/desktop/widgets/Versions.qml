@@ -58,12 +58,13 @@ Variants {
             spacing: Values.spacing.gap.small
 
             StyledText {
-              text: "NixOS"
+              text: Versions.os.name
               font.weight: Values.font.weight.medium
             }
 
             StyledText {
-              text: "Gen. #247"
+              visible: Versions.os.details?.generation ? true : false
+              text: `Gen. ${Versions.os.details?.generation ?? ""}`
               font.pointSize: Values.font.size.smallest
               font.weight: Values.font.weight.small
             }
@@ -73,12 +74,14 @@ Variants {
             spacing: Values.spacing.gap.small
 
             StyledText {
-              text: "latest"
+              text: `on ${Versions.os.details.version}`
               font.weight: Values.font.weight.small
             }
 
             StyledText {
-              text: "(B024CE)"
+              text: `(${Versions.os.details.commit})`
+              font.pointSize: Values.font.size.smallest
+              font.family: Values.font.family.mono
             }
           }
         }
@@ -96,7 +99,7 @@ Variants {
 
           StyledText {
             Layout.alignment: Qt.AlignRight
-            text: "Hyprland"
+            text: Versions.wm.name
             font.weight: Values.font.weight.medium
           }
 
@@ -107,13 +110,15 @@ Variants {
 
             StyledText {
               Layout.alignment: Qt.AlignRight
-              text: "latest"
+              text: `on ${Versions.wm.details.version}`
               font.weight: Values.font.weight.small
             }
 
             StyledText {
               Layout.alignment: Qt.AlignRight
-              text: "(41F5F6)"
+              text: `(${Versions.wm.details.commit})`
+              font.pointSize: Values.font.size.smallest
+              font.family: Values.font.family.mono
             }
           }
         }
