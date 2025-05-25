@@ -43,11 +43,8 @@ Singleton {
     onLoaded: {
       const data = text().trim().split("\n");
 
-      const codenum = data.find((str) => str.match(/^VERSION_ID=/)).split("=")[1];
-      const versionNum = codenum.slice(1, -1);
-
       const name = data.find((str) => str.match(/^NAME=/)).split("=")[1];
-      const version = versionNum;
+      const version = data.find((str) => str.match(/^VERSION_ID=/)).split("=")[1].slice(1, -1);;
       const commit = data.find((str) => str.match(/^BUILD_ID=/)).split("=")[1].split(".")[3].replace('"', "").toUpperCase();
 
       root.os.name = name;
