@@ -30,7 +30,6 @@ RowLayout {
 
       text: root.name
       font.pointSize: Values.font.size.tiny
-      font.weight: Values.font.weight.small
     }
 
     Row {
