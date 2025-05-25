@@ -43,9 +43,7 @@ Singleton {
     onLoaded: {
       const data = text().trim().split("\n");
 
-      // const codename = data.find((str) => str.match(/^VERSION_CODENAME=/)).split("=")[1];
       const codenum = data.find((str) => str.match(/^VERSION_ID=/)).split("=")[1];
-      // const versionCode = `${codename.charAt(0).toUpperCase()}${codename.slice(1)}`;
       const versionNum = codenum.slice(1, -1);
 
       const name = data.find((str) => str.match(/^NAME=/)).split("=")[1];
