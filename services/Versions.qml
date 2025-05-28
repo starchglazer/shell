@@ -26,7 +26,7 @@ Singleton {
 
   Timer {
     running: true
-    interval: 150000
+    interval: 15000
     repeat: true
     onTriggered: {
       os.reload();
