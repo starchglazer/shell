@@ -30,6 +30,7 @@ Singleton {
     repeat: true
     onTriggered: {
       os.reload();
+      gen.running = true;
       wm.running = true;
       hl.running = true;
     }
