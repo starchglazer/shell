@@ -55,27 +55,27 @@ Variants {
         ResourceCircularProgress {
           name: "CPU"
           percent: Resources.cpu.percent
-          simpleDetails: Resources.cpu.details
+          details: Resources.cpu.details
           moreDetails: false
         }
 
         ResourceCircularProgress {
           name: "Memory"
           percent: Resources.memory.percent
-          complexDetails: Resources.memory.details
+          details: Resources.memory.details
           leftToRight: false
         }
 
         ResourceCircularProgress {
           name: "Storage"
           percent: Resources.storage.percent
-          complexDetails: Resources.storage.details
+          details: Resources.storage.details
         }
 
         ResourceCircularProgress {
           name: "Swap"
           percent: Resources.swap.percent
-          complexDetails: Resources.swap.details
+          details: Resources.swap.details
           leftToRight: false
         }
       }
