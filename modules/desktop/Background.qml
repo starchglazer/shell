@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Wayland
 import "widgets"
+import "root:/config"
 
 Variants {
   model: Quickshell.screens
@@ -9,7 +10,7 @@ Variants {
     required property ShellScreen modelData
 
     screen: modelData
-    color: "black"
+    color: Colors.black.pure
 
     layer: WlrLayer.Background
     exclusionMode: ExclusionMode.Ignore

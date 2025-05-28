@@ -37,10 +37,8 @@ Variants {
     WrapperRectangle {
       id: container
 
-      color: "#05000000"
-
+      color: Colors.black.bare
       margin: Values.spacing.padding.largest
-
       radius: Values.rounding.large
 
       ColumnLayout {
