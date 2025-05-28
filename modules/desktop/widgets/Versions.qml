@@ -42,14 +42,16 @@ Variants {
       radius: Values.rounding.large
 
       RowLayout {
-        spacing: Values.spacing.gap.larger
         Layout.minimumWidth: 1
+        spacing: Values.spacing.gap.larger
 
         ColumnLayout {
+          Layout.minimumWidth: 1
           Layout.fillWidth: true
           spacing: Values.spacing.gap.small
 
           RowLayout {
+            Layout.minimumWidth: 1
             Layout.fillWidth: true
             spacing: Values.spacing.gap.small
 
@@ -66,6 +68,7 @@ Variants {
           }
 
           RowLayout {
+            Layout.minimumWidth: 1
             Layout.fillWidth: true
             spacing: Values.spacing.gap.small
 
@@ -88,6 +91,7 @@ Variants {
         }
 
         ColumnLayout {
+          Layout.minimumWidth: 1
           Layout.alignment: Qt.AlignRight
           Layout.fillWidth: true
           spacing: Values.spacing.gap.small
@@ -99,6 +103,7 @@ Variants {
           }
 
           RowLayout {
+            Layout.minimumWidth: 1
             Layout.alignment: Qt.AlignRight
             spacing: Values.spacing.gap.small
 
