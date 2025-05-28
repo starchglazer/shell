@@ -5,6 +5,6 @@ Text {
   renderType: Text.NativeRendering
   color: "white"
   font.family: Values.font.family.sans
-  font.pointSize: Values.font.size.small
+  font.pointSize: Values.font.size.regular
   font.weight: Values.font.weight.regular
 }
