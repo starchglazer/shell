@@ -5,6 +5,7 @@
 // end_4's License: GPL-3.0 - A copy can be found in `licenses` folder in the repository
 
 import QtQuick
+import "root:/config"
 
 Item {
   id: root
@@ -15,8 +16,8 @@ Item {
   property int lineWidth: 2
   property real gapAngle: Math.PI / 10
 
-  property color primaryColor: "#ffffff"
-  property color secondaryColor: "#40ffffff"
+  property color primaryColor: Colors.white.pure
+  property color secondaryColor: Colors.white.dark
 
   property int animationDuration: 1000
   property var easingType: Easing.OutCubic
