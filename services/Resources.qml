@@ -18,8 +18,8 @@ Singleton {
   }
 
   property QtObject cpu: QtObject {
-    property int idle
-    property int total
+    property real idle
+    property real total
     property real percent
 
     property string details
@@ -30,22 +30,22 @@ Singleton {
   }
 
   property QtObject memory: QtObject {
-    property int used
-    property int total
+    property real used
+    property real total
     readonly property real percent: total > 0 ? used / total : 0
     property Details details: Details {}
   }
 
   property QtObject storage: QtObject {
-    property int used
-    property int total
+    property real used
+    property real total
     readonly property real percent: total > 0 ? used / total : 0
     property Details details: Details {}
   }
 
   property QtObject swap: QtObject {
-    property int used
-    property int total
+    property real used
+    property real total
     readonly property real percent: total > 0 ? used / total : 0
     property Details details: Details {}
   }
