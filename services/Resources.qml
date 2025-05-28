@@ -21,12 +21,7 @@ Singleton {
     property real idle
     property real total
     property real percent
-
-    property string details
-
-    property int cores
-    property int summation
-    readonly property real temperature: summation > 0 ? (summation / cores) / 1000 : 0
+    property Detail details: Detail {}
   }
 
   property QtObject memory: QtObject {
@@ -134,8 +129,8 @@ Singleton {
         for (const line of lines)
           sum += parseInt(line);
 
-        root.cpu.summation = sum;
-        root.cpu.cores = len;
+        root.cpu.details.text = Math.ceil((sum / len) / 1000);
+        root.cpu.details.unit = "°C";
       }
     }
   }
