@@ -63,7 +63,6 @@ Variants {
               visible: Versions.os.details?.generation ? true : false
               text: `Gen. #${Versions.os.details?.generation ?? ""}`
               font.pointSize: Values.font.size.smallest
-              font.weight: Values.font.weight.small
             }
           }
 
@@ -100,7 +99,6 @@ Variants {
             text: Versions.wm.name
             font.weight: Values.font.weight.medium
           }
-
 
           RowLayout {
             spacing: Values.spacing.gap.small
