@@ -45,6 +45,7 @@ Variants {
 
       RowLayout {
         spacing: Values.spacing.gap.larger
+        Layout.minimumWidth: 1
 
         ColumnLayout {
           Layout.fillWidth: true
