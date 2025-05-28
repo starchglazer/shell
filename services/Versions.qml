@@ -30,9 +30,10 @@ Singleton {
     repeat: true
     onTriggered: {
       os.reload();
-      gen.running = true;
       wm.running = true;
-      hl.running = true;
+
+      if (root.os.name === "NixOS") gen.running = true;
+      if (root.wm.name === "Hyprland") hl.running = true;
     }
   }
 
@@ -65,6 +66,8 @@ Singleton {
       splitMarker: ""
 
       onRead: data =>{
+        if (root.os.name !== "NixOS") return;
+
         const line = data.trim().split("\n").find((str) => str.match(/current/));
         const current = line.split(" ")[0];
 
