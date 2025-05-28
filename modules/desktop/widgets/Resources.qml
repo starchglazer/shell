@@ -55,7 +55,7 @@ Variants {
         ResourceCircularProgress {
           name: "CPU"
           percent: Resources.cpu.percent
-          simpleDetails: `(${Math.ceil(Resources.cpu.temperature)}°C)`
+          simpleDetails: Resources.cpu.details
           moreDetails: false
         }
 
