@@ -38,11 +38,9 @@ RowLayout {
       layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
       RowLayout {
-        spacing: Values.spacing.gap.none
-
-        visible: moreDetails
-
         Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
+        spacing: Values.spacing.gap.none
+        visible: moreDetails
 
         StyledText {
           text: "("

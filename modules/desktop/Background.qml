@@ -10,11 +10,12 @@ Variants {
     required property ShellScreen modelData
 
     screen: modelData
+    layer: WlrLayer.Background
     color: Colors.black.pure
 
-    layer: WlrLayer.Background
     exclusionMode: ExclusionMode.Ignore
     keyboardFocus: WlrKeyboardFocus.None
+
     anchors {
       top: true
       right: true

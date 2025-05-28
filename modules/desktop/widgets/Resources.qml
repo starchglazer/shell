@@ -38,18 +38,17 @@ Variants {
 
       color: Colors.black.bare
       margin: Values.spacing.padding.largest
-
       radius: Values.rounding.large
 
       GridLayout {
         rows: 2
         columns: 2
 
-        uniformCellWidths: true
-        uniformCellHeights: true
-
         rowSpacing: Values.spacing.gap.medium
         columnSpacing: Values.spacing.gap.medium
+
+        uniformCellWidths: true
+        uniformCellHeights: true
 
         ResourceCircularProgress {
           name: "CPU"

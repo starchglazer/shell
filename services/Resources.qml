@@ -47,23 +47,20 @@ Singleton {
 
   function convertFromBytes(bytes): QtObject {
     const GiB = 1073741824, MiB = 1048576, KiB = 1024;
+    const data = {};
 
     if (bytes >= GiB) {
-      return {
-        text: (bytes / GiB).toFixed(0),
-        unit: "GiB",
-      };
+      data.text = (bytes / GiB).toFixed(0);
+      data.unit = "GiB";
     } else if (bytes >= MiB) {
-      return {
-        text: (bytes / MiB).toFixed(0),
-        unit: "MiB",
-      };
+      data.text = (bytes / MiB).toFixed(0);
+      data.unit = "MiB";
     } else {
-      return {
-        text: (bytes / KiB).toFixed(0),
-        unit: "KiB",
-      };
+      data.text = (bytes / KiB).toFixed(0);
+      data.unit = "KiB";
     }
+
+    return data;
   }
 
   function setDetails(target, usedBytes, totalBytes, multiplier = 1024) {
@@ -72,6 +69,7 @@ Singleton {
 
     target.used.text = used.text;
     target.used.unit = used.unit;
+
     target.total.text = total.text;
     target.total.unit = total.unit;
   }
@@ -95,7 +93,8 @@ Singleton {
     path: "/proc/stat"
 
     onLoaded: {
-      const data = text().match(/^cpu\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)/);
+      const regex = /^cpu\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)/;
+      const data = text().match(regex);
 
       if (data) {
         const stats = data.slice(1).map(n => parseInt(n, 10));
@@ -104,6 +103,7 @@ Singleton {
 
         const totalDiff = total - root.cpu.total;
         const idleDiff = idle - root.cpu.idle;
+
         root.cpu.percent = totalDiff > 0 ? (1 - idleDiff / totalDiff) : 0;
 
         root.cpu.total = total;
@@ -124,7 +124,8 @@ Singleton {
 
       onRead: data => {
         const lines = data.trim().split("\n");
-        let sum = 0, {length: len} = lines;
+        const { length: len } = lines;
+        let sum = 0;
 
         for (const line of lines)
           sum += parseInt(line);
@@ -143,8 +144,11 @@ Singleton {
     onLoaded: {
       const data = text();
 
-      root.memory.total = parseInt(data.match(/MemTotal: *(\d+)/)[1], 10) || 1;
-      root.memory.used = (root.memory.total - parseInt(data.match(/MemAvailable: *(\d+)/)[1], 10)) || 0;
+      const total = data.match(/MemTotal: *(\d+)/)[1];
+      const used = data.match(/MemAvailable: *(\d+)/)[1];
+
+      root.memory.total = parseInt(total, 10) || 1;
+      root.memory.used = (root.memory.total - parseInt(used, 10)) || 0;
 
       setDetails(root.memory.details, root.memory.used, root.memory.total);
     }
@@ -162,10 +166,12 @@ Singleton {
 
       onRead: data => {
         const lines = data.trim().split("\n");
-        let used = 0, free = 0;
+        let used = 0;
+        let free = 0;
 
         for (const line of lines) {
           const [u, a] = line.split(" ");
+
           used += parseInt(u, 10);
           free += parseInt(a, 10);
         }

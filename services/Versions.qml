@@ -82,9 +82,7 @@ Singleton {
 
     stdout: SplitParser {
       splitMarker: ""
-
-      onRead: data =>
-        root.wm.name = data.trim();
+      onRead: data => root.wm.name = data.trim();
     }
   }
 

@@ -88,10 +88,9 @@ Variants {
         }
 
         ColumnLayout {
+          Layout.alignment: Qt.AlignRight
           Layout.fillWidth: true
           spacing: Values.spacing.gap.small
-
-          Layout.alignment: Qt.AlignRight
 
           StyledText {
             Layout.alignment: Qt.AlignRight
@@ -100,8 +99,8 @@ Variants {
           }
 
           RowLayout {
-            spacing: Values.spacing.gap.small
             Layout.alignment: Qt.AlignRight
+            spacing: Values.spacing.gap.small
 
             StyledText {
               Layout.alignment: Qt.AlignRight
