@@ -13,8 +13,7 @@ RowLayout {
 
   required property string name
   required property real percent
-  property QtObject complexDetails
-  property string simpleDetails
+  required property QtObject details
 
   Layout.fillWidth: true
   Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
@@ -53,14 +52,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.complexDetails?.used?.text ?? ""
+          text: root.details?.used?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smaller
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.complexDetails?.used?.unit ?? ""
+          text: root.details?.used?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.small
         }
@@ -73,14 +72,14 @@ RowLayout {
         }
 
         StyledText {
-          text: root.complexDetails?.total?.text ?? ""
+          text: root.details?.total?.text ?? ""
           font.pointSize: Values.font.size.smaller
           font.weight: Values.font.weight.smaller
           font.family: Values.font.family.mono
         }
 
         StyledText {
-          text: root.complexDetails?.total?.unit ?? ""
+          text: root.details?.total?.unit ?? ""
           font.pointSize: Values.font.size.tiny
           font.weight: Values.font.weight.small
         }
@@ -93,14 +92,36 @@ RowLayout {
         }
       }
 
-      StyledText {
+      RowLayout {
+        spacing: Values.spacing.gap.none
         visible: !moreDetails
-        Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
 
-        text: root.simpleDetails
-        font.pointSize: Values.font.size.smaller
-        font.weight: Values.font.weight.smallest
-        font.family: Values.font.family.mono
+        StyledText {
+          text: "("
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details?.text ?? ""
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smaller
+          font.family: Values.font.family.mono
+        }
+
+        StyledText {
+          text: root.details?.unit ?? ""
+          font.pointSize: Values.font.size.tiny
+          font.weight: Values.font.weight.small
+        }
+
+        StyledText {
+          text: ")"
+          font.pointSize: Values.font.size.smaller
+          font.weight: Values.font.weight.smallest
+          font.family: Values.font.family.mono
+        }
       }
 
       StyledText {
