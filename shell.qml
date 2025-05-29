@@ -5,4 +5,5 @@ import "modules"
 
 ShellRoot {
   Desktop {}
+  Shortcuts {}
 }
