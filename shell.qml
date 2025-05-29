@@ -6,4 +6,5 @@ import "modules"
 ShellRoot {
   Desktop {}
   Shortcuts {}
+  Overlays {}
 }
