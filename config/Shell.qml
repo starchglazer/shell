@@ -5,9 +5,12 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
+  readonly property var config: JSON.parse(configFile.text())
+  readonly property var states: JSON.parse(statesFile.text())
+
   FileView {
-    id: file
-    path: `${Paths.state}/shell.json`
+    id: configFile
+    path: `${Paths.config}/config.json`
 
     blockLoading: true
     watchChanges: true
@@ -24,5 +27,16 @@ Singleton {
     }
   }
 
-  readonly property var config: JSON.parse(file.text())
+  FileView {
+    id: statesFile
+    path: `${Paths.state}/states.json`
+
+    blockLoading: true
+    watchChanges: true
+
+    onFileChanged: reload()
+    onAdapterUpdated: writeAdapter()
+
+    adapter: JsonAdapter {}
+  }
 }
