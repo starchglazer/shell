@@ -60,7 +60,7 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", "nixos-rebuild list-generations"]
+    command: ["nixos-rebuild", "list-generations"]
 
     stdout: SplitParser {
       splitMarker: ""
@@ -81,7 +81,7 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", "echo $XDG_CURRENT_DESKTOP"]
+    command: ["echo", "$XDG_CURRENT_DESKTOP"]
 
     stdout: SplitParser {
       splitMarker: ""
@@ -94,7 +94,7 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", "hyprctl version"]
+    command: ["hyprctl", "version", "-j"]
 
     stdout: SplitParser {
       splitMarker: ""
