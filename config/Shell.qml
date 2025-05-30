@@ -24,7 +24,7 @@ Singleton {
       property JsonObject wallpaper: JsonObject {
         property string dir: `${Paths.pictures}/walls`
         property string file: "8.jpg"
-        property string src: `${dir}/${file}`
+        readonly property string src: `${dir}/${file}`
       }
     }
   }
