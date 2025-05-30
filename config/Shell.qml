@@ -5,8 +5,8 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
-  readonly property var config: JSON.parse(configFile.text())
-  readonly property var states: JSON.parse(statesFile.text())
+  property alias config: configAdapter
+  property alias states: statesAdapter
 
   FileView {
     id: configFile
@@ -16,10 +16,12 @@ Singleton {
     watchChanges: true
 
     onFileChanged: reload()
-    onAdapterUpdated: writeAdapter()
+    onAdapterUpdated: configFile.writeAdapter()
 
     adapter: JsonAdapter {
-      property QtObject wallpaper: QtObject {
+      id: configAdapter
+
+      property JsonObject wallpaper: JsonObject {
         property string dir: `${Paths.pictures}/walls`
         property string file: "8.jpg"
         property string src: `${dir}/${file}`
@@ -35,8 +37,14 @@ Singleton {
     watchChanges: true
 
     onFileChanged: reload()
-    onAdapterUpdated: writeAdapter()
+    onAdapterUpdated: statesFile.writeAdapter()
 
-    adapter: JsonAdapter {}
+    adapter: JsonAdapter {
+      id: statesAdapter
+
+      property JsonObject visibilities: JsonObject {
+        property bool session: false
+      }
+    }
   }
 }
