@@ -1,6 +1,7 @@
 import QtQuick
+import Quickshell
 import "overlays"
 
 Item {
-  Session {}
+  LazyLoader { loading: true; Session {} }
 }
