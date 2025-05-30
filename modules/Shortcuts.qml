@@ -11,7 +11,6 @@ Scope {
     onPressed: {
       const { session } = Shell.states.visibilities;
       Shell.states.visibilities.session = !session;
-      console.info(`session: ${!session} -> ${session}`);
     }
   }
 }
