@@ -61,6 +61,7 @@ Variants {
           id: lock
 
           focus: true
+          icon: "lock"
           label:"Lock"
 
           command: [""]
@@ -74,6 +75,7 @@ Variants {
         SessionButton {
           id: sleep
 
+          icon: "bedtime"
           label: "Sleep"
           command: [""]
 
@@ -86,6 +88,7 @@ Variants {
         SessionButton {
           id: logout
 
+          icon: "logout"
           label: "Logout"
           command: [""]
 
@@ -98,6 +101,7 @@ Variants {
         SessionButton {
           id: poweroff
 
+          icon: "power_settings_new"
           label: "Power Off"
           command: [""]
 
@@ -110,6 +114,7 @@ Variants {
         SessionButton {
           id: reboot
 
+          icon: "restart_alt"
           label: "Reboot"
           command: [""]
 
@@ -122,6 +127,7 @@ Variants {
         SessionButton {
           id: hibernate
 
+          icon: "downloading"
           label: "Hibernate"
           command: [""]
 
@@ -141,7 +147,7 @@ Variants {
       component SessionButton: WrapperRectangle {
         id: session
 
-        property string icon
+        required property string icon
         required property string label
         required property list<string> command
 
@@ -150,6 +156,9 @@ Variants {
         color: Colors.black.dark
         border.width: session.activeFocus ? 2 : 1
         border.color: session.activeFocus ? Colors.white.medium : Colors.white.dark
+
+        implicitWidth: 128
+        implicitHeight: 128
 
         function onClicked(event: MouseEvent): void {
           Shell.states.visibilities.session = false;
@@ -166,6 +175,12 @@ Variants {
 
           onEntered: session.focus = true
           onClicked: event => session.onClicked(event)
+
+          StyledIcon {
+            icon: session.icon
+            size: Values.icon.size.medium
+            color: session.focus ? Colors.white.pure : Colors.white.medium
+          }
         }
 
         onFocusChanged: root.label = session.label
