@@ -8,7 +8,7 @@ Singleton {
   component FontFamily: QtObject {
     readonly property string sans: "Inter"
     readonly property string mono: "JetBrainsMono Nerd Font"
-    readonly property string icon: ""
+    readonly property string icon: "Material Symbols Rounded"
   }
 
   component FontSize: QtObject {
@@ -46,6 +46,32 @@ Singleton {
     readonly property int regular: 4
     readonly property int medium: 6
     readonly property int large: 8
+  }
+
+  component IconFill: QtObject {
+    readonly property bool filled: true
+    readonly property bool outline: false
+  }
+
+  component IconSize: QtObject {
+    readonly property int tiny: 12
+    readonly property int smallest: 16
+    readonly property int smaller: 20
+    readonly property int small: 24
+    readonly property int regular: 28
+    readonly property int medium: 32
+    readonly property int large: 40
+    readonly property int larger: 48
+    readonly property int largest: 56
+    readonly property int huge: 64
+  }
+
+  component IconOpticalSize: QtObject {
+    readonly property int regular: 28
+  }
+
+  component IconGrade: QtObject {
+    readonly property int regular: 0
   }
 
   component SpacingGap: QtObject {
@@ -90,6 +116,14 @@ Singleton {
     readonly property FontTracking tracking: FontTracking {}
   }
 
+  component Icon: QtObject {
+    readonly property IconFill fill: IconFill {}
+    readonly property FontWeight weight: FontWeight {}
+    readonly property IconGrade grade: IconGrade {}
+    readonly property IconOpticalSize opticalSize: IconOpticalSize {}
+    readonly property IconSize size: IconSize {}
+  }
+
   component Rounding: QtObject {
     readonly property int none: 0
     readonly property int small: 3
@@ -104,6 +138,7 @@ Singleton {
   }
 
   readonly property Font font: Font {}
+  readonly property Icon icon: Icon {}
   readonly property Rounding rounding: Rounding {}
   readonly property Spacing spacing: Spacing {}
 }
