@@ -8,6 +8,11 @@ Singleton {
   property alias config: configAdapter
   property alias states: statesAdapter
 
+  // Component.onCompleted: {
+  //   configFile.writeAdapter();
+  //   statesFile.writeAdapter();
+  // }
+
   FileView {
     id: configFile
     path: `${Paths.config}/config.json`
