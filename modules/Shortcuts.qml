@@ -13,4 +13,13 @@ Scope {
       Shell.states.visibilities.session = !session;
     }
   }
+
+  Shortcut {
+    name: "applications"
+    description: "Toggle overlay for applications management"
+    onPressed: {
+      const { applications } = Shell.states.visibilities;
+      Shell.states.visibilities.applications = !applications;
+    }
+  }
 }
