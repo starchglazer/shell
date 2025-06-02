@@ -24,7 +24,6 @@ Singleton {
       property JsonObject wallpaper: JsonObject {
         property string dir: `${Paths.pictures}/walls`
         property string file: "8.jpg"
-        readonly property string src: `${dir}/${file}`
       }
     }
   }
@@ -42,6 +41,7 @@ Singleton {
     adapter: JsonAdapter {
       id: statesAdapter
 
+      readonly property string wallpaper: `${configAdapter.wallpaper.dir}/${configAdapter.wallpaper.file}`
       property JsonObject visibilities: JsonObject {
         property bool session: false
       }
