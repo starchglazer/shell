@@ -7,5 +7,5 @@ Image {
   retainWhileLoading: true
   anchors.fill: parent
   fillMode: Image.PreserveAspectCrop
-  source: Shell.config.wallpaper.src
+  source: Shell.states.wallpaper
 }
