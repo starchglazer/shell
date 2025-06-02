@@ -91,6 +91,7 @@ Singleton {
 
       property JsonObject visibilities: JsonObject {
         property bool session: false
+        property bool applications: false
       }
 
       property JsonObject focused: JsonObject {
