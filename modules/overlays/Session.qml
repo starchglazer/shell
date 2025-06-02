@@ -160,12 +160,6 @@ Variants {
         implicitWidth: 128
         implicitHeight: 128
 
-        function onClicked(event: MouseEvent): void {
-          Shell.states.visibilities.session = false;
-          console.log(this.label);
-          // process.startDetached();
-        }
-
         MouseArea {
           id: mousearea
 
@@ -185,14 +179,24 @@ Variants {
 
         onFocusChanged: root.label = session.label
 
+        Keys.onSpacePressed: onPressed()
+        Keys.onEnterPressed: onPressed()
+        Keys.onReturnPressed: onPressed()
+        Keys.onEscapePressed: onPressed(false)
+
         Process {
           id: process
           command: session.command
         }
 
-        Keys.onPressed: (event) => {
-          if (event.key === Qt.Key_Escape)
-            Shell.states.visibilities.session = false;
+        function onClicked(event: MouseEvent): void {
+          Shell.states.visibilities.session = false;
+          process.startDetached();
+        }
+
+        function onPressed(starts = true): void {
+          Shell.states.visibilities.session = false;
+          starts && process.startDetached();
         }
       }
     }
