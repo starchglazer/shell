@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import "root:/utils/resources.js" as Functions
 
 Singleton {
   id: root
@@ -43,35 +44,6 @@ Singleton {
     property real total
     readonly property real percent: total > 0 ? used / total : 0
     property Details details: Details {}
-  }
-
-  function convertFromBytes(bytes): QtObject {
-    const GiB = 1073741824, MiB = 1048576, KiB = 1024;
-    const data = {};
-
-    if (bytes >= GiB) {
-      data.text = (bytes / GiB).toFixed(0);
-      data.unit = "GiB";
-    } else if (bytes >= MiB) {
-      data.text = (bytes / MiB).toFixed(0);
-      data.unit = "MiB";
-    } else {
-      data.text = (bytes / KiB).toFixed(0);
-      data.unit = "KiB";
-    }
-
-    return data;
-  }
-
-  function setDetails(target, usedBytes, totalBytes, multiplier = 1024) {
-    const used = convertFromBytes(usedBytes * multiplier);
-    const total = convertFromBytes(totalBytes * multiplier);
-
-    target.used.text = used.text;
-    target.used.unit = used.unit;
-
-    target.total.text = total.text;
-    target.total.unit = total.unit;
   }
 
   Timer {
@@ -150,7 +122,7 @@ Singleton {
       root.memory.total = parseInt(total, 10) || 1;
       root.memory.used = (root.memory.total - parseInt(used, 10)) || 0;
 
-      setDetails(root.memory.details, root.memory.used, root.memory.total);
+      Functions.setDetails(root.memory.details, root.memory.used, root.memory.total);
     }
   }
 
@@ -179,7 +151,7 @@ Singleton {
         root.storage.used = used;
         root.storage.total = used + free;
 
-        setDetails(root.storage.details, root.storage.used, root.storage.total);
+        Functions.setDetails(root.storage.details, root.storage.used, root.storage.total);
       }
     }
   }
@@ -200,7 +172,7 @@ Singleton {
         root.swap.total = parseInt(values[2], 10);
         root.swap.used = parseInt(values[3], 10);
 
-        setDetails(root.swap.details, root.swap.used, root.swap.total, 1);
+        Functions.setDetails(root.swap.details, root.swap.used, root.swap.total, 1);
       }
     }
   }
