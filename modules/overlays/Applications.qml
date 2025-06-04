@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import "applications"
 import "root:/components"
 import "root:/config"
 
@@ -34,5 +35,7 @@ Variants {
       anchors.fill: parent
       onClicked: Shell.states.visibilities.applications = false;
     }
+
+    Parent {}
   }
 }
