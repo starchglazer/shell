@@ -4,25 +4,32 @@ My work-in-progress shell configuration made with [Quickshell](https://quickshel
 
 ## Overview
 
-A minimalist, misty shell concept designed for power users to be distraction-free and encourage full-focus mode, but should still be (hopefully) usable for most users.
+A minimalist, misty shell concept designed and built for power users seeking a distraction-free, full-focus workflow while still remaining usable and accessible for most users.
 
 It features a lot of widgets such as application launcher, workspace overview, power session, etc., that help mitigate the core barless concept.
 
 Design reference is public and can be viewed and accessed in Figma Community:
+
 > https://www.figma.com/community/file/1506658504473891805/mist-shell
 
 ## Screenshots
 
-None for now :(
+Desktop Wallpaper + Widgets (Date/Time, Resources, Versions)
 
-Just check out the design reference, I guess ¯\\_(ツ)_/¯
+![Desktop](.github/assets/desktop.png)
+
+Session Management
+
+![Session](.github/assets/session.png)
+
+(Only these are implemented for now :sob: but there are more to follow; meanwhile, check out the design file if you're interested)
 
 ## Acknowledgements
 
 These individuals have greatly contributed directly/indirectly to what I have now in this repository through feedback, guidance, and, believe it or not, vibes, so shout out to these really cool peeps:
 
 - [Rexi](https://github.com/Rexcrazy804), [(flakes + dotfiles)](https://github.com/Rexcrazy804/Zaphkiel): Helped a lot of times with my nix skill issues
-- [Soramane](https://github.com/soramanew), [(github org)](https://github.com/caelestia-dots/): I yoinked (and will be yoinking) `/services` from this smart guy
+- [Soramane](https://github.com/soramanew), [(github org)](https://github.com/caelestia-dots/): I yoinked (and will continue yoinking) `/services` from this smart guy
 - [end](https://github.com/end_4), [(dotfiles)](https://github.com/end_4/dots-hyprland): Really helpful with my Quickshell skill issues and knowledge gap
 - [outfoxxed]([https://](https://git.outfoxxed.me/outfoxxed)), (Quickshell overlord and creator): Really helpful with my Quickshell skill issues and knowledge gap
 
