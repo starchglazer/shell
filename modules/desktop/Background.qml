@@ -1,6 +1,6 @@
 import Quickshell
 import Quickshell.Wayland
-import "widgets"
+import "background"
 import "root:/config"
 
 Variants {

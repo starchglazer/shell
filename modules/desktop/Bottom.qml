@@ -1,5 +1,5 @@
 import QtQuick
-import "widgets"
+import "bottom"
 
 Item {
   DateTime {}
