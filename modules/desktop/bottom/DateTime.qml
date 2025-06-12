@@ -18,6 +18,9 @@ Variants {
     layer: WlrLayer.Bottom
     screen: modelData
 
+    exclusionMode: ExclusionMode.Ignore
+    keyboardFocus: WlrKeyboardFocus.None
+
     anchors {
       top: false
       right: false
