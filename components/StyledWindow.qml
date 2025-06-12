@@ -4,6 +4,6 @@ import "root:/config"
 WlrLayershell {
   required property string name
 
-  namespace: `mist-shell-${name}`
+  namespace: `${Shell.name}-${name}`
   color: Colors.none
 }
