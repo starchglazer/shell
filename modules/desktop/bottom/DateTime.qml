@@ -4,7 +4,6 @@ import Quickshell.Wayland
 import "datetime"
 import "root:/components"
 import "root:/config"
-import "root:/services"
 
 Variants {
   model: Quickshell.screens
