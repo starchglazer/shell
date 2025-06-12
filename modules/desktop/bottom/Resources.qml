@@ -1,11 +1,9 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Widgets
+import "resources"
 import "root:/components"
 import "root:/config"
-import "root:/services"
 
 Variants {
   model: Quickshell.screens
@@ -33,53 +31,11 @@ Variants {
       left: Values.spacing.margin.none
     }
 
-    implicitHeight: container.implicitHeight
-    implicitWidth: container.implicitWidth
+    implicitHeight: parent.implicitHeight
+    implicitWidth: parent.implicitWidth
 
-    WrapperRectangle {
-      id: container
-
-      color: Colors.black.bare
-      margin: Values.spacing.padding.largest
-      radius: Values.rounding.large
-
-      GridLayout {
-        rows: 2
-        columns: 2
-
-        rowSpacing: Values.spacing.gap.medium
-        columnSpacing: Values.spacing.gap.medium
-
-        uniformCellWidths: true
-        uniformCellHeights: true
-
-        ResourceCircularProgress {
-          name: "CPU"
-          percent: Resources.cpu.percent
-          details: Resources.cpu.details
-          moreDetails: false
-        }
-
-        ResourceCircularProgress {
-          name: "Memory"
-          percent: Resources.memory.percent
-          details: Resources.memory.details
-          leftToRight: false
-        }
-
-        ResourceCircularProgress {
-          name: "Storage"
-          percent: Resources.storage.percent
-          details: Resources.storage.details
-        }
-
-        ResourceCircularProgress {
-          name: "Swap"
-          percent: Resources.swap.percent
-          details: Resources.swap.details
-          leftToRight: false
-        }
-      }
+    Parent {
+      id: parent
     }
   }
 }
