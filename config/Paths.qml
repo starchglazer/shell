@@ -6,9 +6,14 @@ import QtQuick
 import Quickshell
 
 Singleton {
-  readonly property string pictures: StandardPaths.standardLocations(StandardPaths.PicturesLocation)[0]
+  property string name: Shell.name
 
-  readonly property string config: `${StandardPaths.standardLocations(StandardPaths.ConfigLocation)[0]}/mist-shell`
-  readonly property string state: `${StandardPaths.standardLocations(StandardPaths.StateLocation)[0]}/mist-shell`
-  readonly property string cache: `${StandardPaths.standardLocations(StandardPaths.CacheLocation)[0]}/mist-shell`
+  readonly property string pictures: getPath(StandardPaths.PicturesLocation)
+  readonly property string config: `${getPath(StandardPaths.ConfigLocation)}/${name}`
+  readonly property string state: `${getPath(StandardPaths.StateLocation)}/${name}`
+  readonly property string cache: `${getPath(StandardPaths.CacheLocation)}/${name}`
+
+  function getPath(path) {
+    return StandardPaths.standardLocations(path)[0];
+  }
 }
