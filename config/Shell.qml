@@ -5,6 +5,7 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
+  property string name: "mist-shell"
   property alias config: configAdapter
   property alias states: statesAdapter
 
