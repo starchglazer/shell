@@ -1,5 +1,6 @@
 import Quickshell.Hyprland
+import "root:/config"
 
 GlobalShortcut {
-  appid: "mist-shell"
+  appid: Shell.name
 }
