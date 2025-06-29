@@ -42,7 +42,7 @@ Singleton {
           {
             "label": "Sleep",
             "icon": "bedtime",
-            "command": [],
+            "command": ["systemctl", "suspend"],
           },
           {
             "label": "Logout",
@@ -52,17 +52,17 @@ Singleton {
           {
             "label": "Power Off",
             "icon": "power_settings_new",
-            "command": [],
+            "command": ["poweroff"],
           },
           {
             "label": "Reboot",
             "icon": "restart_alt",
-            "command": [],
+            "command": ["reboot"],
           },
           {
             "label": "Hibernate",
             "icon": "downloading",
-            "command": [],
+            "command": ["systemctl", "hibernate"],
           }
         ]
         property JsonObject grid: JsonObject {
