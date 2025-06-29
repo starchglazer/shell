@@ -23,7 +23,7 @@ GridLayout {
   Repeater {
     model: root.entries
 
-    SessionButton {
+    Session {
       id: button
 
       required property var modelData
