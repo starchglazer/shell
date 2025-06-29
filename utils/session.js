@@ -48,9 +48,7 @@ function clear() {
 }
 
 function click(index) {
+  const { command } = Shell.config.session.entries[index];
   clear();
-  console.log(
-    Shell.config.session.entries[index].label,
-    Shell.config.session.entries[index].command
-  );
+  Quickshell.execDetached(command);
 }
