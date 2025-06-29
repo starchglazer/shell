@@ -4,6 +4,7 @@ import Quickshell.Wayland
 import "applications"
 import "root:/components"
 import "root:/config"
+import "root:/utils/applications.js" as Functions
 
 Variants {
   model: Quickshell.screens
@@ -32,8 +33,10 @@ Variants {
     }
 
     MouseArea {
+      focus: true
       anchors.fill: parent
       onClicked: Shell.states.visibilities.applications = false;
+      Keys.onPressed: (event) => Functions.onPressed(event.key);
     }
 
     Parent {}
