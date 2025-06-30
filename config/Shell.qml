@@ -9,10 +9,12 @@ Singleton {
   property string name: "mist-shell"
   property alias config: configAdapter
   property alias states: statesAdapter
+  property alias facets: facetsAdapter
 
   // Component.onCompleted: {
   //   configFile.writeAdapter();
   //   statesFile.writeAdapter();
+  //   facetsFile.writeAdapter();
   // }
 
   FileView {
@@ -27,6 +29,21 @@ Singleton {
 
     adapter: ConfigAdapter {
       id: configAdapter
+    }
+  }
+
+  FileView {
+    id: facetsFile
+    path: `${Paths.config}/facets.json`
+
+    blockLoading: true
+    watchChanges: true
+
+    onFileChanged: reload()
+    onAdapterUpdated: facetsFile.writeAdapter()
+
+    adapter: FacetsAdapter {
+      id: facetsAdapter
     }
   }
 
