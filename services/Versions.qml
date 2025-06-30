@@ -30,8 +30,8 @@ Singleton {
     repeat: true
     onTriggered: {
       os.reload();
-      gen.running = true;
       wm.running = true;
+      gen.running = root.os.name === "NixOS";
       hl.running = root.wm.name === "Hyprland";
     }
   }
@@ -57,7 +57,7 @@ Singleton {
   Process {
     id: gen
 
-    running: true
+    running: root.os.name === "NixOS"
 
     command: ["nixos-rebuild", "list-generations"]
 
