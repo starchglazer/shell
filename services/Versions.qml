@@ -65,7 +65,7 @@ Singleton {
       splitMarker: ""
 
       onRead: data => {
-        const line = data.trim()?.split("\n")?.find((str) => str.match(/current/)) ?? "";
+        const line = data.trim()?.split("\n")?.find((str) => str.match(/True/)) ?? "";
         const current = line.split(" ")[0];
 
         root.os.details.generation = current;
