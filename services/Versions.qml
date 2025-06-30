@@ -32,7 +32,7 @@ Singleton {
       os.reload();
       gen.running = true;
       wm.running = true;
-      hl.running = true;
+      hl.running = root.wm.name === "Hyprland";
     }
   }
 
@@ -89,7 +89,7 @@ Singleton {
   Process {
     id: hl
 
-    running: true
+    running: root.wm.name === "Hyprland"
 
     command: ["hyprctl",  "version", "-j"]
 
