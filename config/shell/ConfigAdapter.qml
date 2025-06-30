@@ -42,11 +42,9 @@ JsonAdapter {
         "command": ["systemctl", "hibernate"],
       }
     ]
-    readonly property JsonObject grid: JsonObject {
+    property JsonObject grid: JsonObject {
       property int columns: 3
       property int rows: 2
     }
-    property int buttonSize: 128
-    property int iconSize: Values.icon.size.large
   }
 }
