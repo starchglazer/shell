@@ -7,5 +7,5 @@ StyledText {
   required property string label
 
   text: root.label
-  font.pointSize: Values.font.size.medium
+  font.pointSize: Shell.facets.session.size.label
 }

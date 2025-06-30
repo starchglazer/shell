@@ -22,8 +22,8 @@ WrapperRectangle {
   border.width: root.focused ? 2 : 1
   border.color: root.focused ? Colors.white.medium : Colors.white.dark
 
-  implicitWidth: Shell.config.session.buttonSize
-  implicitHeight: Shell.config.session.buttonSize
+  implicitWidth: Shell.facets.session.size.button
+  implicitHeight: Shell.facets.session.size.button
 
   MouseArea {
     anchors.fill: parent
@@ -35,7 +35,7 @@ WrapperRectangle {
 
     StyledIcon {
       icon: root.icon
-      size: Shell.config.session.iconSize
+      size: Shell.facets.session.size.icon
       color: root.focused ? Colors.white.pure : Colors.white.medium
     }
   }
