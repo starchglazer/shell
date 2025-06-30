@@ -3,6 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import "shell"
 
 Singleton {
   property string name: "mist-shell"
@@ -24,54 +25,8 @@ Singleton {
     onFileChanged: reload()
     onAdapterUpdated: configFile.writeAdapter()
 
-    adapter: JsonAdapter {
+    adapter: ConfigAdapter {
       id: configAdapter
-
-      property JsonObject wallpaper: JsonObject {
-        property string dir: `${Paths.pictures}/walls`
-        property string file: "8.jpg"
-      }
-
-      property JsonObject session: JsonObject {
-        readonly property var entries: [
-          {
-            "label": "Lock",
-            "icon": "lock",
-            "command": [],
-          },
-          {
-            "label": "Sleep",
-            "icon": "bedtime",
-            "command": ["systemctl", "suspend"],
-          },
-          {
-            "label": "Logout",
-            "icon": "logout",
-            "command": [],
-          },
-          {
-            "label": "Power Off",
-            "icon": "power_settings_new",
-            "command": ["poweroff"],
-          },
-          {
-            "label": "Reboot",
-            "icon": "restart_alt",
-            "command": ["reboot"],
-          },
-          {
-            "label": "Hibernate",
-            "icon": "downloading",
-            "command": ["systemctl", "hibernate"],
-          }
-        ]
-        property JsonObject grid: JsonObject {
-          property int columns: 3
-          property int rows: 2
-        }
-        property int buttonSize: 128
-        property int iconSize: Values.icon.size.large
-      }
     }
   }
 
@@ -85,19 +40,8 @@ Singleton {
     onFileChanged: reload()
     onAdapterUpdated: statesFile.writeAdapter()
 
-    adapter: JsonAdapter {
+    adapter: StatesAdapter {
       id: statesAdapter
-
-      readonly property string wallpaper: `${configAdapter.wallpaper.dir}/${configAdapter.wallpaper.file}`
-
-      property JsonObject visibilities: JsonObject {
-        property bool session: false
-        property bool applications: false
-      }
-
-      property JsonObject focused: JsonObject {
-        property int session: 0
-      }
     }
   }
 }
