@@ -91,16 +91,16 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", "hyprctl version"]
+    command: ["hyprctl",  "version", "-j"]
 
     stdout: SplitParser {
       splitMarker: ""
 
       onRead: data => {
-        const line = data.trim().split("\n").find((str) => str.match(/^Tag:/)).split(",");
+        const values = JSON.parse(data);
 
-        const version = line[0].split(" ")[1];
-        const commit = line[1].split(" ")[2].slice(0, 7).toUpperCase();
+        const { version } = values;
+        const commit = values.commit.slice(0, 7).toUpperCase();
 
         root.wm.details.version = version;
         root.wm.details.commit = commit;
