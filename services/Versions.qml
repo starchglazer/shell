@@ -59,7 +59,7 @@ Singleton {
 
     running: true
 
-    command: ["sh", "-c", "nixos-rebuild list-generations"]
+    command: ["nixos-rebuild", "list-generations"]
 
     stdout: SplitParser {
       splitMarker: ""
