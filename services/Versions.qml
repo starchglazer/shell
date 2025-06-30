@@ -20,7 +20,7 @@ Singleton {
   }
 
   property QtObject wm: QtObject {
-    property string name
+    readonly property string name: Quickshell.env("XDG_CURRENT_DESKTOP")
     property Details details: Details {}
   }
 
@@ -30,7 +30,6 @@ Singleton {
     repeat: true
     onTriggered: {
       os.reload();
-      wm.running = true;
       gen.running = root.os.name === "NixOS";
       hl.running = root.wm.name === "Hyprland";
     }
@@ -70,19 +69,6 @@ Singleton {
 
         root.os.details.generation = current;
       }
-    }
-  }
-
-  Process {
-    id: wm
-
-    running: true
-
-    command: ["sh", "-c", "echo $XDG_CURRENT_DESKTOP"]
-
-    stdout: SplitParser {
-      splitMarker: ""
-      onRead: data => root.wm.name = data.trim();
     }
   }
 
