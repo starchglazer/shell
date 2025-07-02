@@ -19,7 +19,7 @@ RowLayout {
   Layout.alignment: root.leftToRight ? Qt.AlignRight : Qt.AlignLeft
   layoutDirection: root.leftToRight ? Qt.LeftToRight : Qt.RightToLeft
 
-  spacing: Values.spacing.gap.large
+  spacing: Values.spacing.gap.medium
 
   ColumnLayout {
     spacing: Values.spacing.gap.none

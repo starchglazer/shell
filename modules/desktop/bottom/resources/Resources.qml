@@ -7,8 +7,8 @@ GridLayout {
   rows: 2
   columns: 2
 
-  rowSpacing: Values.spacing.gap.medium
-  columnSpacing: Values.spacing.gap.medium
+  rowSpacing: Values.spacing.gap.regular
+  columnSpacing: Values.spacing.gap.regular
 
   uniformCellWidths: true
   uniformCellHeights: true

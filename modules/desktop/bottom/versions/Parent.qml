@@ -11,7 +11,7 @@ WrapperRectangle {
 
   RowLayout {
     Layout.minimumWidth: 1
-    spacing: Values.spacing.gap.larger
+    spacing: Values.spacing.gap.large
 
     Os {}
 
