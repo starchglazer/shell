@@ -9,31 +9,33 @@ Column {
     spacing: Values.spacing.gap.none
 
     StyledText {
-      text: DateTime.format("hh")
+      text: DateTime.format(Shell.config.datetime.time.hour)
       font.pointSize: Values.font.size.larger
       font.weight: Values.font.weight.medium
     }
 
     StyledText {
-      text: DateTime.format(":")
+      text: ":"
       font.pointSize: Values.font.size.larger
       font.weight: Values.font.weight.small
     }
 
     StyledText {
-      text: DateTime.format("mm")
+      text: DateTime.format(Shell.config.datetime.time.minute)
       font.pointSize: Values.font.size.larger
       font.weight: Values.font.weight.medium
     }
 
     StyledText {
-      text: DateTime.format(":")
+      visible: Shell.config.datetime.time.second.length > 0
+      text: ":"
       font.pointSize: Values.font.size.larger
       font.weight: Values.font.weight.small
     }
 
     StyledText {
-      text: DateTime.format("ss")
+      visible: Shell.config.datetime.time.second.length > 0
+      text: DateTime.format(Shell.config.datetime.time.second)
       font.pointSize: Values.font.size.larger
       font.weight: Values.font.weight.medium
     }
