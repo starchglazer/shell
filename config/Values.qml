@@ -76,24 +76,10 @@ Singleton {
 
   component SpacingGap: QtObject {
     readonly property int none: 0
-    readonly property int smallest: 2
-    readonly property int smaller: 4
     readonly property int small: 6
-    readonly property int regular: 8
-    readonly property int medium: 12
-    readonly property int large: 16
-    readonly property int larger: 20
-    readonly property int largest: 24
-  }
-
-  component SpacingPadding: QtObject {
-    readonly property int none: 0
-    readonly property int smallest: 4
-    readonly property int smaller: 6
-    readonly property int small: 8
-    readonly property int large: 12
-    readonly property int larger: 16
-    readonly property int largest: 24
+    readonly property int regular: 12
+    readonly property int medium: 16
+    readonly property int large: 32
   }
 
   component SpacingMargin: QtObject {
@@ -106,6 +92,16 @@ Singleton {
     readonly property int large: 32
     readonly property int larger: 40
     readonly property int largest: 48
+  }
+
+  component SpacingPadding: QtObject {
+    readonly property int none: 0
+    readonly property int smallest: 4
+    readonly property int smaller: 6
+    readonly property int small: 8
+    readonly property int large: 12
+    readonly property int larger: 16
+    readonly property int largest: 24
   }
 
   component Font: QtObject {
@@ -133,8 +129,8 @@ Singleton {
 
   component Spacing: QtObject {
     readonly property SpacingGap gap: SpacingGap {}
-    readonly property SpacingPadding padding: SpacingPadding {}
     readonly property SpacingMargin margin: SpacingMargin {}
+    readonly property SpacingPadding padding: SpacingPadding {}
   }
 
   readonly property Font font: Font {}
