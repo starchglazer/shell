@@ -13,7 +13,7 @@ WrapperRectangle {
   ColumnLayout {
     spacing: Values.spacing.gap.small
 
-    Date {}
     Time {}
+    Date {}
   }
 }
