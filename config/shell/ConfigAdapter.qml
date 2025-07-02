@@ -6,9 +6,23 @@ import ".."
 JsonAdapter {
   property JsonObject wallpaper: JsonObject {
     property string dir: `${Paths.pictures}/walls`
-    property string file: "8.jpg"
+    property string file: "3.png"
   }
-
+  property JsonObject datetime: JsonObject {
+    property JsonObject time: JsonObject {
+      property string hour: "hh"
+      property string minute: "mm"
+      property string second: "ss"
+    }
+    property JsonObject date: JsonObject {
+      property bool hasFullDay: true
+      property list<string> format: [
+        "yyyy",
+        "MMMM",
+        "dd"
+      ]
+    }
+  }
   property JsonObject session: JsonObject {
     readonly property var entries: [
       {
