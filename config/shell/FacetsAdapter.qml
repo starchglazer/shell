@@ -10,5 +10,9 @@ JsonAdapter {
       property int icon: Values.icon.size.large
       property int label: Values.font.size.medium
     }
+    property JsonObject spacing: JsonObject {
+      property int parent: Values.spacing.gap.large
+      property int buttons: Values.spacing.gap.medium
+    }
   }
 }
