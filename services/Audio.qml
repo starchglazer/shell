@@ -19,6 +19,7 @@ Singleton {
 
   function setVolume(audio: PwNodeAudio, volume: real): void {
     if (!ready) return;
+    audio.muted = false;
     audio.volume = volume;
   }
 
