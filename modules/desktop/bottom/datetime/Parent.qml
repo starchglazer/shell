@@ -7,11 +7,11 @@ WrapperRectangle {
   id: container
 
   color: Colors.black.bare
-  margin: Values.spacing.padding.largest
-  radius: Values.rounding.large
+  margin: Shell.facets.datetime.padding.parent
+  radius: Shell.facets.datetime.rounding.parent
 
   ColumnLayout {
-    spacing: Values.spacing.gap.small
+    spacing: Shell.facets.datetime.spacing.parent
 
     Time {}
     Date {}

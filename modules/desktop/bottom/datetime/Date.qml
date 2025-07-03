@@ -7,12 +7,12 @@ import "root:/services"
 
 Column {
   RowLayout {
-    spacing: Values.spacing.gap.small
+    spacing: Shell.facets.datetime.spacing.date
 
     StyledText {
       text: DateTime.format(Shell.config.datetime.date.format.join(" "))
-      font.pointSize: Values.font.size.medium
-      font.weight: Values.font.weight.smaller
+      font.pointSize: Shell.facets.datetime.size.date
+      font.weight: Shell.facets.datetime.weight.date
     }
 
     ToolSeparator {
@@ -24,8 +24,8 @@ Column {
     StyledText {
       visible: Shell.config.datetime.date.hasFullDay
       text: DateTime.format("dddd")
-      font.pointSize: Values.font.size.smaller
-      font.weight: Values.font.weight.smaller
+      font.pointSize: Shell.facets.datetime.size.fullDay
+      font.weight: Shell.facets.datetime.weight.date
     }
   }
 }

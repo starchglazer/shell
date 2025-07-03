@@ -6,38 +6,38 @@ import "root:/services"
 
 Column {
   RowLayout {
-    spacing: Values.spacing.gap.none
+    spacing: Shell.facets.datetime.spacing.time
 
     StyledText {
       text: DateTime.format(Shell.config.datetime.time.hour)
-      font.pointSize: Values.font.size.larger
-      font.weight: Values.font.weight.medium
+      font.pointSize: Shell.facets.datetime.size.time
+      font.weight: Shell.facets.datetime.weight.time
     }
 
     StyledText {
       text: ":"
-      font.pointSize: Values.font.size.larger
-      font.weight: Values.font.weight.small
+      font.pointSize: Shell.facets.datetime.size.time
+      font.weight: Shell.facets.datetime.weight.separator
     }
 
     StyledText {
       text: DateTime.format(Shell.config.datetime.time.minute)
-      font.pointSize: Values.font.size.larger
-      font.weight: Values.font.weight.medium
+      font.pointSize: Shell.facets.datetime.size.time
+      font.weight: Shell.facets.datetime.weight.time
     }
 
     StyledText {
       visible: Shell.config.datetime.time.second.length > 0
       text: ":"
-      font.pointSize: Values.font.size.larger
-      font.weight: Values.font.weight.small
+      font.pointSize: Shell.facets.datetime.size.time
+      font.weight: Shell.facets.datetime.weight.separator
     }
 
     StyledText {
       visible: Shell.config.datetime.time.second.length > 0
       text: DateTime.format(Shell.config.datetime.time.second)
-      font.pointSize: Values.font.size.larger
-      font.weight: Values.font.weight.medium
+      font.pointSize: Shell.facets.datetime.size.time
+      font.weight: Shell.facets.datetime.weight.time
     }
   }
 }
