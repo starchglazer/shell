@@ -8,7 +8,7 @@ ColumnLayout {
   property var entries: Shell.config.session.entries
   property int focused: Shell.states.focused.session
 
-  spacing: Values.spacing.gap.large
+  spacing: Shell.facets.session.spacing.parent
 
   Buttons {
     entries: root.entries

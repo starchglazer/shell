@@ -13,8 +13,8 @@ GridLayout {
   rows: Shell.config.session.grid.rows
   columns: Shell.config.session.grid.columns
 
-  rowSpacing: Values.spacing.gap.medium
-  columnSpacing: Values.spacing.gap.medium
+  rowSpacing: Shell.facets.session.spacing.buttons
+  columnSpacing: Shell.facets.session.spacing.buttons
 
   uniformCellWidths: true
   uniformCellHeights: true
