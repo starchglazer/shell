@@ -6,7 +6,7 @@ import ".."
 JsonAdapter {
   property JsonObject wallpaper: JsonObject {
     property string dir: `${Paths.pictures}/walls`
-    property string file: "8.jpg"
+    property string file: "3.png"
   }
 
   property JsonObject session: JsonObject {
