@@ -1,8 +1,7 @@
-import QtQuick
 import Quickshell
 import "overlays"
 
-Item {
+Scope {
   LazyLoader { loading: true; Session {} }
   LazyLoader { loading: true; Applications {} }
 }

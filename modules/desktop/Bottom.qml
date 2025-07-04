@@ -1,7 +1,7 @@
-import QtQuick
+import Quickshell
 import "bottom"
 
-Item {
+Scope {
   DateTime {}
   Resources {}
   Versions {}

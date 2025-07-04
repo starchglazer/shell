@@ -1,7 +1,7 @@
-import QtQuick
+import Quickshell
 import "desktop"
 
-Item {
+Scope {
   Background {}
   Bottom {}
 }
