@@ -8,4 +8,5 @@ Scope {
 
   LazyLoader { loading: visibilities.session; Session {} }
   LazyLoader { loading: visibilities.applications; Applications {} }
+  LazyLoader { loading: !!visibilities.transientOSD; TransientOSD {} }
 }
