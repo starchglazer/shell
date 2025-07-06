@@ -4,7 +4,7 @@ import Quickshell
 import "modules"
 
 ShellRoot {
-  Shortcuts {}
+  Actions {}
   Overlays {}
   Desktop {}
 }
