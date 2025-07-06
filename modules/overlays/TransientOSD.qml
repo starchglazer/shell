@@ -51,8 +51,13 @@ Variants {
       border.color: Colors.white.light
 
       Loader {
-        active: !!visibilities.transientOSD;
-        source: Qt.resolvedUrl(`./transientOsd/${!!visibilities.transientOSD ? visibilities.transientOSD : visibilities.lastTransientOSD}.qml`)
+        property bool hasValue: !!visibilities.transientOSD
+        property url file: visibilities.transientOSD
+          ? visibilities.transientOSD
+          : visibilities.lastTransientOSD
+
+        active: hasValue
+        source: Qt.resolvedUrl(`./transientOsd/${file}.qml`)
       }
     }
   }

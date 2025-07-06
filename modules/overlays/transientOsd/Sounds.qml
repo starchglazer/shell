@@ -9,7 +9,6 @@ RowLayout {
   property var audio: Audio.sink.audio
   property bool muted: Audio.getMuted(audio)
   property real volume: Audio.getVolume(audio)
-
   property bool isDisabled: (muted || volume <= 0)
 
   spacing: Values.spacing.gap.medium
