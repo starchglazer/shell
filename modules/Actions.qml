@@ -24,4 +24,36 @@ Scope {
       root.visibilities.applications = !root.visibilities.applications;
     }
   }
+
+  Scope {
+    Connections {
+      target: Audio
+      function onSinkMutedChanged() {
+        root.visibilities.transientOSD = "Sounds";
+        transientOSDTimer.restart();
+      }
+      function onSourceMutedChanged() {
+        root.visibilities.transientOSD = "Source";
+        transientOSDTimer.restart();
+      }
+      function onSinkVolumeChanged() {
+        root.visibilities.transientOSD = "Sounds";
+        transientOSDTimer.restart();
+      }
+      function onSourceVolumeChanged() {
+        root.visibilities.transientOSD = "Source";
+        transientOSDTimer.restart();
+      }
+    }
+
+    Timer {
+      id: transientOSDTimer
+      interval: 1250
+      triggeredOnStart: false
+      onTriggered: {
+        root.visibilities.lastTransientOSD = root.visibilities.transientOSD;
+        root.visibilities.transientOSD = "";
+      }
+    }
+  }
 }
