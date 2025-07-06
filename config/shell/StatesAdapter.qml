@@ -9,6 +9,8 @@ JsonAdapter {
   property JsonObject visibilities: JsonObject {
     property bool session: false
     property bool applications: false
+    property string transientOSD
+    property string lastTransientOSD
   }
 
   property JsonObject focused: JsonObject {
