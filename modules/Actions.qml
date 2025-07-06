@@ -1,16 +1,19 @@
+import QtQuick
 import Quickshell
 import "root:/components"
 import "root:/config"
+import "root:/services"
 
 Scope {
   id: root
+
+  property QtObject visibilities: Shell.states.visibilities
 
   Shortcut {
     name: "session"
     description: "Toggle overlay for session management"
     onPressed: {
-      const { session } = Shell.states.visibilities;
-      Shell.states.visibilities.session = !session;
+      root.visibilities.session = !root.visibilities.session;
     }
   }
 
@@ -18,8 +21,7 @@ Scope {
     name: "applications"
     description: "Toggle overlay for applications management"
     onPressed: {
-      const { applications } = Shell.states.visibilities;
-      Shell.states.visibilities.applications = !applications;
+      root.visibilities.applications = !root.visibilities.applications;
     }
   }
 }
