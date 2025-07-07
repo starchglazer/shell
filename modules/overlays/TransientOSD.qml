@@ -45,7 +45,7 @@ Variants {
 
       margin: Values.spacing.padding.larger
 
-      color: Colors.black.light
+      color: Colors.black.dark
       radius: Values.rounding.large
       border.width: 2
       border.color: Colors.white.light

@@ -18,7 +18,7 @@ WrapperRectangle {
 
   radius: Values.rounding.large
   margin: Values.spacing.padding.large
-  color: Colors.black.dark
+  color: Colors.black.light
   border.width: root.focused ? 2 : 1
   border.color: root.focused ? Colors.white.medium : Colors.white.dark
 
