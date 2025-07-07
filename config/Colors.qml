@@ -14,9 +14,9 @@ Singleton {
 
   component Black: QtObject {
     readonly property color pure: "#ff000000"
-    readonly property color light: "#bf000000"
+    readonly property color dark: "#bf000000"
     readonly property color medium: "#80000000"
-    readonly property color dark: "#40000000"
+    readonly property color light: "#40000000"
     readonly property color bare: "#05000000"
   }
 
