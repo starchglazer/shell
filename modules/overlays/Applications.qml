@@ -39,6 +39,8 @@ Variants {
       Keys.onPressed: (event) => Functions.onPressed(event.key);
     }
 
-    Parent {}
+    Parent {
+      anchors.centerIn: parent
+    }
   }
 }
