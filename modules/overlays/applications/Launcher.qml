@@ -5,6 +5,6 @@ import "root:/config"
 ColumnLayout {
   id: root
 
-  spacing: Values.spacing.margin.large
+  spacing: Values.spacing.gap.largest
 
 }

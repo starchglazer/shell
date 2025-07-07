@@ -5,7 +5,7 @@ import "root:/config"
 RowLayout {
   id: root
 
-  spacing: Values.spacing.margin.large
+  spacing: Values.spacing.gap.large
 
 
 }
