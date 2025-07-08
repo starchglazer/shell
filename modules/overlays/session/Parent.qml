@@ -10,7 +10,7 @@ ColumnLayout {
 
   spacing: Values.spacing.margin.large
 
-  Buttons {
+  Sessions {
     entries: root.entries
     focused: root.focused
   }
