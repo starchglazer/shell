@@ -49,4 +49,8 @@ JsonAdapter {
     property int buttonSize: 128
     property int iconSize: Values.icon.size.large
   }
+
+  property JsonObject hyprland: JsonObject {
+    property int fixedWorkspaces: 5
+  }
 }
