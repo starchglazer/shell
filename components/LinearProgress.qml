@@ -8,7 +8,7 @@ ProgressBar {
   property real rangeFrom: 1
   property real rangeTo: 100
   property real current
-  property bool enabled
+  property bool enabled: true
 
   from: rangeFrom
   to: rangeTo
