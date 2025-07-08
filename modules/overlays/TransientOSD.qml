@@ -1,7 +1,6 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Widgets
 import "transientOsd"
 import "root:/components"
 import "root:/config"
@@ -37,13 +36,12 @@ Variants {
       left: Values.spacing.margin.none
     }
 
-    implicitHeight: parent.implicitHeight
-    implicitWidth: parent.implicitWidth
+    implicitWidth: 224
+    implicitHeight: 48
 
-    WrapperRectangle {
-      id: parent
-
-      margin: Values.spacing.padding.larger
+    Rectangle {
+      anchors.fill: parent
+      anchors.centerIn: parent
 
       color: Colors.black.dark
       radius: Values.rounding.large
@@ -55,6 +53,8 @@ Variants {
         property url file: visibilities.transientOSD
           ? visibilities.transientOSD
           : visibilities.lastTransientOSD
+
+        anchors.centerIn: parent
 
         active: hasValue
         source: Qt.resolvedUrl(`./transientOsd/${file}.qml`)
