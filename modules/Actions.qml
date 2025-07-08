@@ -46,6 +46,14 @@ Scope {
       }
     }
 
+    Connections {
+      target: Hyprland
+      function onActiveWorkspaceChanged() {
+        root.visibilities.transientOSD = "Spaces";
+        transientOSDTimer.restart();
+      }
+    }
+
     Timer {
       id: transientOSDTimer
       interval: 1250
