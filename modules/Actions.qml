@@ -54,6 +54,14 @@ Scope {
       }
     }
 
+    Connections {
+      target: Brightness
+      function onCurrentChanged() {
+        root.visibilities.transientOSD = "Lights";
+        transientOSDTimer.restart();
+      }
+    }
+
     Timer {
       id: transientOSDTimer
       interval: 1250
