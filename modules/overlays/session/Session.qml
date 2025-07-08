@@ -14,8 +14,6 @@ WrapperRectangle {
   required property bool focused
   required property int current
 
-  property bool debug: true
-
   radius: Values.rounding.large
   margin: Values.spacing.padding.large
   color: Colors.black.light
