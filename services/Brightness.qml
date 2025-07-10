@@ -1,5 +1,5 @@
 pragma Singleton
-pragma ComponentBehavior: Bound
+
 import Quickshell
 import Quickshell.Io
 
@@ -12,10 +12,7 @@ Singleton {
 
   FileView {
     path: "/sys/class/backlight/intel_backlight/max_brightness"
-    onLoaded: {
-      const data = text().trim();
-      root.maximum = parseInt(data);
-    }
+    onLoaded: root.maximum = parseInt(text().trim())
   }
 
   FileView {
