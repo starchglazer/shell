@@ -50,9 +50,7 @@ Variants {
 
       Loader {
         property bool hasValue: !!visibilities.transientOSD
-        property url file: visibilities.transientOSD
-          ? visibilities.transientOSD
-          : visibilities.lastTransientOSD
+        property url file: hasValue ? visibilities.transientOSD : visibilities.lastTransientOSD
 
         anchors.centerIn: parent
 
