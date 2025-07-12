@@ -2,7 +2,7 @@ import QtQuick
 import "root:/config"
 
 Image {
-  cache: false
+  cache: true
   asynchronous: true
   retainWhileLoading: true
   anchors.fill: parent
