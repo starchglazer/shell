@@ -36,10 +36,10 @@ function onPressed(key) {
 
   if (key === Qt.Key_Return || key === Qt.Key_Enter || key === Qt.Key_Space) return Functions.click(index);
 
-  if (key === Qt.Key_W || key === Qt.Key_Up) onNavigate(index, "up");
-  if (key === Qt.Key_D || key === Qt.Key_Right) onNavigate(index, "right");
-  if (key === Qt.Key_S || key === Qt.Key_Down) onNavigate(index, "down");
-  if (key === Qt.Key_A || key === Qt.Key_Left) onNavigate(index, "left");
+  if (key === Qt.Key_W || key === Qt.Key_Up) return onNavigate(index, "up");
+  if (key === Qt.Key_D || key === Qt.Key_Right) return onNavigate(index, "right");
+  if (key === Qt.Key_S || key === Qt.Key_Down) return onNavigate(index, "down");
+  if (key === Qt.Key_A || key === Qt.Key_Left) return onNavigate(index, "left");
 }
 
 function clear() {
