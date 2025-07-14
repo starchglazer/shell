@@ -4,4 +4,5 @@ function onPressed(key) {
 
 function clear() {
   Shell.states.visibilities.applications = false;
+  Shell.states.focused.applications = 0;
 }
