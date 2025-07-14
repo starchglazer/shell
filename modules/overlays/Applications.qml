@@ -37,10 +37,10 @@ Variants {
       anchors.fill: parent
       onClicked: Functions.clear();
       Keys.onPressed: (event) => Functions.onPressed(event.key);
-    }
 
-    Parent {
-      anchors.centerIn: parent
+      Parent {
+        anchors.centerIn: parent
+      }
     }
   }
 }
