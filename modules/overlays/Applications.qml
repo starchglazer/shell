@@ -35,7 +35,7 @@ Variants {
     MouseArea {
       focus: true
       anchors.fill: parent
-      onClicked: Shell.states.visibilities.applications = false;
+      onClicked: Functions.clear();
       Keys.onPressed: (event) => Functions.onPressed(event.key);
     }
 
