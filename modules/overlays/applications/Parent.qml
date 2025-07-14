@@ -4,6 +4,11 @@ import "root:/config"
 ColumnLayout {
   spacing: Values.spacing.gap.largest
 
-  Overview {}
-  Launcher {}
+  Overview {
+    Layout.alignment: Qt.AlignCenter
+  }
+
+  Launcher {
+    Layout.alignment: Qt.AlignCenter
+  }
 }
