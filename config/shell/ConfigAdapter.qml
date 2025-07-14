@@ -50,6 +50,13 @@ JsonAdapter {
     property int iconSize: Values.icon.size.large
   }
 
+  property JsonObject applications: JsonObject {
+    readonly property JsonObject grid: JsonObject {
+      property int columns: 3
+      property int rows: 2
+    }
+  }
+
   property JsonObject hyprland: JsonObject {
     property int fixedWorkspaces: 5
   }
