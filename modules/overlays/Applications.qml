@@ -33,10 +33,8 @@ Variants {
     }
 
     MouseArea {
-      focus: true
       anchors.fill: parent
-      onClicked: Functions.clear();
-      Keys.onPressed: (event) => Functions.onPressed(event.key);
+      onClicked: Functions.onClear();
 
       Parent {
         anchors.centerIn: parent

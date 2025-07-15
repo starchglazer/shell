@@ -16,5 +16,6 @@ JsonAdapter {
   property JsonObject focused: JsonObject {
     property int session: 0
     property int applications: 0
+    property string application
   }
 }
