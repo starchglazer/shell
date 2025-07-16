@@ -42,19 +42,18 @@ function onPressed(event) {
 
   if (key === Qt.Key_Return || key === Qt.Key_Enter) return onConfirm();
 
-  if (key === Qt.Key_Backspace) return onPressedModify("delete");
-
-  return onPressedModify("concat", text);
+  if (key === Qt.Key_Backspace) return onPressedModify(event, "delete");
+  else return onPressedModify(event, "concat", text);
 }
 
-function onPressedModify(type, text) {
-  const oldText = Shell.states.focused.application;
+function onPressedModify(event, type, char) {
+  if (!(event.modifiers === 0 || event.modifiers === 33554432)) return;
 
-  const newText = (type === "concat")
-    ? oldText.concat(text)
-    : (type === "delete")
-      ? oldText.slice(0, oldText.length - 1)
-      : null;
+  const oldText = Shell.states.focused.application;
+  let newText;
+
+  if (type === "concat") newText = oldText.concat(char);
+  else if (type === "delete") newText = oldText.slice(0, oldText.length - 1);
 
   Shell.states.focused.application = newText;
 }
@@ -74,6 +73,7 @@ function getEntries() {
   return Applications.entries
     .filter((entry) => !entry.noDisplay)
     .filter((entry) => entry.name.toLowerCase().startsWith(input.toLowerCase()))
+    // .filter((entry) => entry.name.toLowerCase().includes(input.toLowerCase()))
     .sort((a, b) => a.name.localeCompare(b.name))
     .slice(0, 5);
 }
