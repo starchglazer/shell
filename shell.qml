@@ -4,6 +4,8 @@ import Quickshell
 import qs.modules
 
 ShellRoot {
+  settings.watchFiles: false
+
   Actions {}
   Overlays {}
   Desktop {}
