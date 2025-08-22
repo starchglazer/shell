@@ -2,10 +2,10 @@ import QtQuick
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Widgets
-import "session"
-import "root:/components"
-import "root:/config"
-import "root:/utils/session.js" as Functions
+import qs.components
+import qs.config
+import "./session"
+import "root:/functions/session.js" as Functions
 
 Variants {
   model: Quickshell.screens

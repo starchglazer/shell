@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import ".."
+import "../"
 
 JsonAdapter {
   readonly property string wallpaper: `${Shell.config.wallpaper.dir}/${Shell.config.wallpaper.file}`

@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Widgets
-import "root:/config"
+import qs.config
 
 WrapperRectangle {
   color: Colors.black.bare

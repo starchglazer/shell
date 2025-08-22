@@ -5,7 +5,7 @@
 // end_4's License: GPL-3.0 - A copy can be found in `licenses` folder in the repository
 
 import QtQuick
-import "root:/config"
+import qs.config
 
 Item {
   id: root

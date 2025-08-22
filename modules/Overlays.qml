@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
-import "overlays"
-import "root:/config"
+import qs.config
+import "./overlays"
 
 Scope {
   property QtObject visibilities: Shell.states.visibilities

@@ -1,5 +1,5 @@
 import Quickshell
-import "desktop"
+import "./desktop"
 
 Scope {
   Background {}

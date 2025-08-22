@@ -1,10 +1,10 @@
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import "applications"
-import "root:/components"
-import "root:/config"
-import "root:/utils/applications.js" as Functions
+import qs.components
+import qs.config
+import "./applications"
+import "root:/functions/applications.js" as Functions
 
 Variants {
   model: Quickshell.screens

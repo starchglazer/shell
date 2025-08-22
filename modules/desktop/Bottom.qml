@@ -1,5 +1,5 @@
 import Quickshell
-import "bottom"
+import "./bottom"
 
 Scope {
   DateTime {}

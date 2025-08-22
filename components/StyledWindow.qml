@@ -1,5 +1,5 @@
 import Quickshell.Wayland
-import "root:/config"
+import qs.config
 
 WlrLayershell {
   required property string name

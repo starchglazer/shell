@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Widgets
-import "root:/components"
-import "root:/config"
+import qs.components
+import qs.config
 
 GridLayout {
   id: root

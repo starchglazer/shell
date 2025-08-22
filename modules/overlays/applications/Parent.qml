@@ -1,5 +1,5 @@
 import QtQuick.Layouts
-import "root:/config"
+import qs.config
 
 ColumnLayout {
   spacing: Values.spacing.gap.largest

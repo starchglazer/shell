@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "root:/config"
-import "root:/services"
+import qs.config
+import qs.services
 
 RowLayout {
   id: root

@@ -1,9 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Widgets
-import "root:/components"
-import "root:/config"
-import "root:/services"
+import qs.components
+import qs.config
+import qs.services
 
 RowLayout {
   spacing: Values.spacing.gap.medium

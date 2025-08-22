@@ -2,9 +2,9 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
-import "root:/components"
-import "root:/config"
-import "root:/utils/session.js" as Functions
+import qs.components
+import qs.config
+import "root:/functions/session.js" as Functions
 
 WrapperRectangle {
   id: root

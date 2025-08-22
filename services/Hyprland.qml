@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import "root:/config"
+import qs.config
 
 Singleton {
   readonly property int fixedWorkspaces: Shell.config.hyprland.fixedWorkspaces

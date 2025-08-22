@@ -1,8 +1,8 @@
 import QtQuick
 import QtQuick.Layouts
-import "root:/components"
-import "root:/config"
-import "root:/services"
+import qs.components
+import qs.config
+import qs.services
 
 Column {
   RowLayout {

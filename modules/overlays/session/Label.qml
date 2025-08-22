@@ -1,5 +1,5 @@
-import "root:/components"
-import "root:/config"
+import qs.components
+import qs.config
 
 StyledText {
   id: root

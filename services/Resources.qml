@@ -3,7 +3,7 @@ pragma Singleton
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "root:/utils/resources.js" as Functions
+import "root:/functions/resources.js" as Functions
 
 Singleton {
   id: root

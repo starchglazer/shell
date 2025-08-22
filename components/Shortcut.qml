@@ -1,5 +1,5 @@
 import Quickshell.Hyprland
-import "root:/config"
+import qs.config
 
 GlobalShortcut {
   appid: Shell.name
